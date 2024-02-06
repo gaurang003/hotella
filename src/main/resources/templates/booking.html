@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<!-- Your existing HTML code here -->
+
+<body>
+
+<!-- Your existing body content here -->
+
+<div class="container mt-5">
+    <div class="card">
+        <div class="card-body">
+            <h2 class="card-title mb-4">Room Booking</h2>
+            <form action="/room/processBooking" method="post" th:object="${booking}" id="bookingForm">
+                <div class="form-group">
+                    <label for="roomType">Select Room Type:</label>
+                    <select id="roomType" name="roomType" class="form-control" th:field="*{roomType}">
+                        <option th:each="type : ${roomTypes}" th:value="${type}" th:text="${type}"></option>
+                    </select>
+                </div>
+
+                <!-- Add other form fields here -->
+
+                <button type="submit" class="btn btn-primary" onclick="window.location.href='payment.html'">Proceed to Payment</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Your existing script and style tags here -->
+
+</body>
+</html>
