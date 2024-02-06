@@ -1,350 +1,59 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible"
-          content="IE=edge">
-    <meta name="viewport"
-          content="width=device-width,
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
 				initial-scale=1.0">
     <title>Hotella</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="responsive.css">
 
-
-    <link rel="stylesheet" href="css/home.css">
-
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
-<script>
-    let menuicn = document.querySelector(".menuicn");
-    let nav = document.querySelector(".navcontainer");
 
-    menuicn.addEventListener("click", () => {
-        nav.classList.toggle("navclose");
-    });
-</script>
+    <!-- for header part -->
+    <div th:replace="fragments/header :: header"></div>
 
+    <div class="main-container">
+        <div th:replace="fragments/navbar :: navbar"></div>
+        <div class="main">
 
-<!-- for header part -->
-<header>
-
-    <div class="logosec">
-        <div class="logo">Hotella</div>
-        <img src=
-                     "https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png"
-             class="icn menuicn"
-             id="menuicn"
-             alt="menu-icon">
-    </div>
-
-    <div class="searchbar">
-        <input type="text"
-               placeholder="Search">
-        <div class="searchbtn">
-            <img src=
-                         "https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-                 class="icn srchicn"
-                 alt="search-icon">
-        </div>
-    </div>
-
-    <div class="message">
-        <div class="circle"></div>
-        <img src=
-                     "https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/8.png"
-             class="icn"
-             alt="">
-        <div class="dp">
-            <img src=
-                         "https://media.geeksforgeeks.org/wp-content/uploads/20221210180014/profile-removebg-preview.png"
-                 class="dpicn"
-                 alt="dp">
-        </div>
-    </div>
-
-</header>
-
-<div class="main-container">
-    <div class="navcontainer">
-        <nav class="nav">
-            <div class="nav-upper-options">
-                <div class="nav-option option1">
-                    <img src=
-                                 "https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
-                         class="nav-img"
-                         alt="dashboard">
-                    <h3> Dashboard</h3>
+            <div class="searchbar2">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" alt="search-button">
                 </div>
-
-                <div class="option2 nav-option">
-                    <img src=
-                                 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png"
-                         class="nav-img"
-                         alt="articles">
-                    <h3><a href="room" style="text-decoration:none">Room</a></h3>
-                </div>
-
-                <div class="nav-option option3">
-                    <img src=
-                                 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png"
-                         class="nav-img"
-                         alt="report">
-                    <h3><a href="feedback.html" style="text-decoration:none">Feedback</a></h3>
-                </div>
-
-                <div class="nav-option option4">
-                    <img src=
-                                 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/6.png"
-                         class="nav-img"
-                         alt="institution">
-                    <h3><a href="canteen.html" style="text-decoration:none">Canteen</a></h3>
-                </div>
-
-                <div class="nav-option option5">
-                    <img src=
-                                 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png"
-                         class="nav-img"
-                         alt="blog">
-                    <h3> Profile</h3>
-                </div>
-                <div class="nav-option logout">
-                    <img src=
-                                 "https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png"
-                         class="nav-img"
-                         alt="logout">
-                    <h3>Logout</h3>
-                </div>
-
             </div>
-        </nav>
-    </div>
-    <div class="main">
+            <div class="report-container">
 
-        <div class="searchbar2">
-            <input type="text"
-                   name=""
-                   id=""
-                   placeholder="Search">
-            <div class="searchbtn">
-                <img src=
-                             "https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-                     class="icn srchicn"
-                     alt="search-button">
-            </div>
-        </div>
-        <div class="report-container">
-            <style>
-                body {
-                    margin: 0;
-                    box-sizing: border-box;
-                    margin-top: 0px;
-                }
-
-                /* CSS for header */
-                .header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background-color: #f5f5f5;
-                }
-
-                .header .logo {
-                    font-size: 25px;
-                    font-family: 'Sriracha', cursive;
-                    color: #000;
-                    text-decoration: none;
-                    margin-left: 30px;
-                }
-
-                .nav-items {
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    background-color: #f5f5f5;
-                    margin-right: 20px;
-                }
-
-                .nav-items a {
-                    text-decoration: none;
-                    color: #000;
-                    padding: 35px 20px;
-                }
-
-                /* CSS for main element */
-                .intro {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    width: 100%;
-                    height: 520px;
-                    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://www.bpimaging.com/assets/uploads/2015/02/hotel-photography-exterior-quality-inn-suites.jpg");
-                    background-size: cover;
-                    background-position: center;
-                    background-repeat: no-repeat;
-                }
-
-                .intro h1 {
-                    font-family: sans-serif;
-                    font-size: 60px;
-                    color: #fff;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    margin: 0;
-                }
-
-                .intro p {
-                    font-size: 20px;
-                    color: #d1d1d1;
-                    text-transform: uppercase;
-                    margin: 20px 0;
-                }
-
-                .intro button {
-                    background-color: #5edaf0;
-                    color: #000;
-                    padding: 10px 25px;
-                    border: none;
-                    border-radius: 5px;
-                    font-size: 20px;
-                    font-weight: bold;
-                    cursor: pointer;
-                    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
-                }
-
-                .achievements {
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    padding: 40px 80px;
-                }
-
-                .achievements .work {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 0 40px;
-                }
-
-                .achievements .work i {
-                    width: fit-content;
-                    font-size: 50px;
-                    color: #333333;
-                    border-radius: 50%;
-                    border: 2px solid #333333;
-                    padding: 12px;
-                }
-
-                .achievements .work .work-heading {
-                    font-size: 20px;
-                    color: #756f6f;
-                    text-transform: uppercase;
-                    margin: 10px 0;
-                }
-
-                .achievements .work .work-text {
-                    font-size: 15px;
-                    color: #807676;
-                    margin: 10px 0;
-                }
-
-                .about-me {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 40px 80px;
-                    border-top: 20px solid #eeeeee;
-                }
-
-                .about-me img {
-                    width: 500px;
-                    max-width: 100%;
-                    height: auto;
-                    border-radius: 10px;
-                }
-
-                .about-me-text h2 {
-                    font-size: 30px;
-                    color: #333333;
-                    text-transform: uppercase;
-                    margin: 0;
-                }
-
-                .about-me-text p {
-                    font-size: 15px;
-                    color: #585858;
-                    margin: 10px 0;
-                }
-
-                /* CSS for footer */
-                .footer {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    background-color: #302f49;
-                    padding: 40px 80px;
-                }
-
-                .footer .copy {
-                    color: #fff;
-                }
-
-                .bottom-links {
-                    display: flex;
-                    justify-content: space-around;
-                    align-items: center;
-                    padding: 40px 0;
-                }
-
-                .bottom-links .links {
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 0 40px;
-                }
-
-                .bottom-links .links span {
-                    font-size: 20px;
-                    color: #fff;
-                    text-transform: uppercase;
-                    margin: 10px 0;
-                }
-
-                .bottom-links .links a {
-                    text-decoration: none;
-                    color: #a1a1a1;
-                    padding: 10px 20px;
-                }
-            </style>
-            <main>
-                <div class="intro">
-                    <h1>Hotella</h1>
-                    <p>Book room as per your choice!!</p>
-                    <!-- <button>
+                <main>
+                    <div class="intro">
+                        <h1>Hotella</h1>
+                        <p>Book room as per your choice!!</p>
+                        <!-- <button>
                     <li>
                          <a href="register.html" style="text-decoration:none">Welcome Guest!!</a>
                     </li>
                     </button> -->
 
-                </div>
-
-                <div class="achievements">
-
-                </div>
-                <div class="about-me">
-                    <div class="about-me-text">
-                        <h2>About Us</h2>
                     </div>
-                    <img src="" alt="me">
-                </div>
-            </main>
+
+                    <div class="achievements">
+
+                    </div>
+                    <div class="about-me">
+                        <div class="about-me-text">
+                            <h2>About Us</h2>
+                        </div>
+                        <img src="" alt="me">
+                    </div>
+                </main>
+            </div>
         </div>
     </div>
-</div>
 </body>
+
 </html>
