@@ -1,12 +1,26 @@
 package com.hotella.HotelBookingWebSite.entity;
 
-import java.util.Date;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.time.LocalDate;
+
+@Entity
+@Setter
+@Getter
 public class Booking {
-    private String roomType;
-    private int guests;
-    private Date checkIn;
-    private Date checkOut;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
 
-    // getters and setters
-}
+        @ManyToOne
+        private Room room;
+
+        private LocalDate checkInDate;
+        private LocalDate checkOutDate;
+        private double totalPrice;
+
+        // Getters and setters
+    }
+

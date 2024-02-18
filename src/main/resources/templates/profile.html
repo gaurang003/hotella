@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+				initial-scale=1.0">
+    <title>Hotella</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="responsive.css" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+<!-- for header part -->
+<div th:replace="fragments/header :: header"></div>
+
+<div class="main-container">
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="main">
+
+        <h1> profile page </h1>
+    </div>
+</div>
+</body>
+
+</html>

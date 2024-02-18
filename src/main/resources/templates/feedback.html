@@ -32,11 +32,13 @@
                 <div class="container">
                     <h2>Feedback Form</h2>
                     <form th:object="${feedback}" th:action="@{/submitFeedback}" method="post">
-                        <label for="name">Name:</label>
-                        <input type="text" th:field="*{name}" required /><br />
+<!--                        <label for="name">Name:</label>-->
+                        <label >Name:</label>
+                        <input type="text"  required /><br />
 
-                        <label for="comment">Comment:</label>
-                        <textarea th:field="*{comment}" required></textarea><br />
+<!--                        <label for="comment">Comment:</label>-->
+                        <label >Comment:</label>
+                        <textarea required></textarea><br />
 
                         <button type="submit">Submit Feedback</button>
                     </form>

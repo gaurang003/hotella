@@ -35,7 +35,7 @@ public class SpringSecurity {
                                 .anyRequest().authenticated()
                 ).formLogin(
                         form -> form
-                                .loginPage("/login")
+                                .loginPage("/index")
                                 .loginProcessingUrl("/login")
                                 .defaultSuccessUrl("/home")
                                 .permitAll()

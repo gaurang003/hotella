@@ -1,4 +1,4 @@
-package com.hotella.HotelBookingWebSite.controller;
+package com.hotella.HotelBookingWebSite.controller.rest;
 
 
 import com.hotella.HotelBookingWebSite.dto.UserDto;
@@ -83,9 +83,9 @@ public class AuthController {
         return "users";
     }
 
-    @GetMapping("/booking")
-    public String bookingPage(Model model) {
-        return "booking";
-    }
+  //  @GetMapping("/booking")
+    //public String bookingPage(Model model) {
+      //  return "booking";
+    //}
 
 }

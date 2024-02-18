@@ -1,4 +1,4 @@
-<navbar>
+<navbar xmlns:th="http://www.w3.org/1999/xhtml">
     <div class="navcontainer">
         <nav class="nav">
             <div class="nav-upper-options">
@@ -11,13 +11,14 @@
                 <div class="option2 nav-option">
                     <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183322/9.png" class="nav-img"
                         alt="articles">
-                    <h3><a href="room" style="text-decoration:none">Room</a></h3>
+                  <!--  <h3><a href="room_booking.html" style="text-decoration:none">Room</a></h3>  -->
+                    <h3><a th:href="room" style="text-decoration:none">Room</a></h3>
                 </div>
 
                 <div class="nav-option option3">
                     <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183320/5.png" class="nav-img"
                         alt="report">
-                    <h3><a href="feedback" style="text-decoration:none">Feedback</a></h3>
+                    <h3><a th:href="feedback" style="text-decoration:none">Feedback</a></h3>
                 </div>
 
                 <div class="nav-option option4">
@@ -29,7 +30,7 @@
                 <div class="nav-option option5">
                     <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183323/10.png" class="nav-img"
                         alt="blog">
-                    <h3> Profile</h3>
+                    <h3><a th:href="profile" style="text-decoration:none">Profile</a></h3>
                 </div>
                 <div class="nav-option logout">
                     <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210183321/7.png" class="nav-img"

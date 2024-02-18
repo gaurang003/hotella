@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"
       xmlns: th="http://www.thymeleaf.org"
->
+      xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Hotella</title>
@@ -216,15 +216,15 @@
 <header class="header">
     <a href="#" class="logo">Hotella</a>
     <nav class="nav-items">
-        <a class="navbar-brand" href="register.html">Register</a>
-        <a class="navbar-brand" href="login.html">Login</a>
+        <a class="navbar-brand" th:href="register" >Register</a>
+        <a class="navbar-brand" th:href="login" >Login</a>
     </nav>
 </header>
 <main>
     <div class="intro">
         <h1>Hotella</h1>
         <p>Book room as per your choice!!</p>
-        <button><a class="navbar-brand" href="register.html" style="text-decoration:none">Welcome Guest!!</a></button>
+        <button><a class="navbar-brand" th:href="register.html" style="text-decoration:none">Welcome Guest!!</a></button>
     </div>
 
     <div class="achievements">
@@ -235,7 +235,7 @@
             <h2>About Us</h2>
         </div>
         <img src="" alt="me">
-    </div
+    </div>
 </main>
 <footer class="footer">
     <div class="copy">&copy;  Hotella</div>

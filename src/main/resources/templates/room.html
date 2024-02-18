@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:window.location.th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:window.location.th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -21,6 +22,7 @@
         <div th:replace="fragments/navbar :: navbar"></div>
         <div class="main">
 
+           <!-- <h1 th:text="${minDate}"></h1> -->
             <div class="searchbar2">
                 <input type="text" name="" id="" placeholder="Search">
                 <div class="searchbtn">
@@ -35,59 +37,55 @@
                             <h2 class="card-title mb-4">Room Booking</h2>
                             <form method="post" id="bookingForm">
                                 <div class="form-group">
-                                    <label for="roomType">Select Room Type:</label>
-                                    <select id="roomType" name="roomType" class="form-control">
-                                        <option value="normal">Normal Room</option>
-                                        <option value="deluxe">Deluxe Room</option>
-                                        <option value="luxurious">Luxurious Room</option>
-                                    </select>
-                                    <!--  <h2>Select Room Type:</h2>-->
-                                    <!--  <button class="room-button" onclick="selectRoom('normal')">
-                        <img src="file:///C:/Users/rjkan/OneDrive/Pictures/Normal%20room.jpg" alt="Normal Room">
-                    </button>
+                                    <div class="form-group">
+                                        <label>Select Room Type:</label>
+                                        <div>
+                                            <input type="radio" id="normalRoom" name="roomType" value="normal" data-price="100">
+                                            <label for="normalRoom">
+                                                <h3>Normal Room</h3><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/77329713704049.5627727f54be5.jpg" alt="Normal Room" width="150">
+                                                <p>Price: $100 per night</p>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="deluxeRoom" name="roomType" value="deluxe" data-price="200">
+                                            <label for="deluxeRoom">
+                                                <h3>Deluxe Room</h3><img src="https://www.grandlordhotel.com/medias/room/big/78/deluxe02.jpg" alt="Deluxe Room" width="150">
+                                                <p>Price: $200 per night</p>
+                                            </label>
+                                        </div>
+                                        <div>
+                                            <input type="radio" id="luxuriousRoom" name="roomType" value="luxurious" data-price="300">
+                                            <label for="luxuriousRoom">
+                                                <h3>Luxurious Room</h3><img src="https://www.jetsetter.com//uploads/sites/7/2018/04/mcdO57rG-1380x1035.jpeg" alt="Luxurious Room" width="150">
+                                                <p>Price: $300 per night</p>
+                                            </label>
+                                        </div>
+                                    </div>
 
-                    <button class="room-button" onclick="selectRoom('deluxe')">
-                        <img src="file:///C:/Users/rjkan/OneDrive/Pictures/Deluxe%20room.jpg" alt="Deluxe Room">
-                    </button>
+                                    <div class="form-group">
+                                        <label for="guests">Number of Guests:</label>
+                                        <input type="number" id="guests" name="guests" class="form-control" min="1" required>
+                                    </div>
 
-                    <button class="room-button" onclick="selectRoom('luxurious')">
-                        <img src="file:///C:/Users/rjkan/OneDrive/Pictures/Luxury%20Room.jpg" alt="Luxurious Room">
-                    </button>
-                    <div id="selectRoom"></div>
-                    <script>
-                        function selectRoom(roomType){
-                            document.getElementById('selectedRoom').innerHTML = 'Selected Room Type: ${roomType}}';
-                        }
-                    </script>-->
+                                    <div class="form-group">
+                                        <label for="checkIn">Check-in Date:</label>
+                                        <input type="date" th:attr="min=${minDate}" id="checkIn" name="checkIn" class="form-control" required>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="checkOut">Check-out Date:</label>
+                                        <input type="date" th:attr="min=${minDate}" id="checkOut" name="checkOut" class="form-control" required>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+
                                 </div>
-
-                                <div class="form-group">
-                                    <label for="guests">Number of Guests:</label>
-                                    <input type="number" id="guests" name="guests" class="form-control" min="1"
-                                        required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="checkIn">Check-in Date:</label>
-                                    <input type="date" min="2024-02-06" id="checkIn" name="checkIn" class="form-control"
-                                        required>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="checkOut">Check-out Date:</label>
-                                    <input type="date" id="checkOut" name="checkOut" class="form-control" required>
-                                </div>
-                                <button type="submit" class="btn btn-primary"
-                                    onclick="window.location.href='payment.html'">Proceed to Payment</button>
                             </form>
-                        </div>
-                    </div>
-
-                    <div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </body>
 

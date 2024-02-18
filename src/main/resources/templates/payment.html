@@ -31,7 +31,7 @@
             </div>
             <div class="report-container">
                 <div class="container">
-                    <h2>Payment</h2>
+                 <!--   <h2>Payment</h2>
                     <form th:action="@{/processPayment}" method="post">
                         <label for="cardNumber">Card Number:</label>
                         <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number" required>
@@ -44,7 +44,42 @@
 
                         <button type="submit" class="btn btn-primary"
                             onclick="window.location.href='paymentConfirmation.html'">Make Payment</button>
+                    </form>  -->
+                    <h1>Payment</h1>
+                    <p>Total Price: <span id="totalPrice"></span></p>
+                    <form action="/pay" method="post">
+                        <input type="hidden" name="totalPrice" id="totalPriceInput" />
+                        <button type="submit">Proceed to Payment</button>
                     </form>
+
+                    <script>
+                        // Calculate total price based on room type and number of guests
+                        const roomRadios = document.querySelectorAll('input[name="roomType"]');
+                        const guestsInput = document.getElementById('guests');
+                        const totalPriceSpan = document.getElementById('totalPrice');
+                        const totalPriceInput = document.getElementById('totalPriceInput');
+
+                        function calculateTotalPrice() {
+                            const selectedRoom = document.querySelector('input[name="roomType"]:checked');
+                            const pricePerNight = selectedRoom ? parseInt(selectedRoom.dataset.price) : 0;
+                            const numberOfGuests = guestsInput.value ? parseInt(guestsInput.value) : 1;
+                            const checkInDate = new Date(document.getElementById('checkIn').value);
+                            const checkOutDate = new Date(document.getElementById('checkOut').value);
+                            const numberOfNights = (checkOutDate - checkInDate) / (1000 * 60 * 60 * 24);
+                            const totalPrice = pricePerNight * numberOfNights * numberOfGuests;
+                            totalPriceSpan.textContent = '$' + totalPrice;
+                            totalPriceInput.value = totalPrice; // Set value for form submission
+                        }
+
+                        roomRadios.forEach(radio => radio.addEventListener('change', calculateTotalPrice));
+                        guestsInput.addEventListener('input', calculateTotalPrice);
+                        document.getElementById('checkIn').addEventListener('change', calculateTotalPrice);
+                        document.getElementById('checkOut').addEventListener('change', calculateTotalPrice);
+
+                        // Calculate total price on page load
+                        calculateTotalPrice();
+                    </script>
+
                 </div>
             </div>
         </div>
