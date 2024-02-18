@@ -12,3 +12,9 @@ console.log('todays date'+ today);
      menuicn.addEventListener("click", () => {
          nav.classList.toggle("navclose");
      })
+
+var roomBooking = function() {
+
+    console.log("clicked on room booking");
+    alert("clicked on room booking");
+}

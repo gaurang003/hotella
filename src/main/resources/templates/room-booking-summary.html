@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:window.location.th="http://www.w3.org/1999/xhtml"
+      xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+				initial-scale=1.0">
+    <title>Hotella</title>
+    <link rel="stylesheet" href="responsive.css" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+        ...>
+    <link rel="stylesheet" href="@{/webjars/bootstrap/css/bootstrap.min.css}"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <!-- for header part -->
+    <div th:replace="fragments/header :: header"></div>
+    <div class="main-container">
+        <div th:replace="fragments/navbar :: navbar"></div>
+        <div class="main">
+
+           <!-- <h1 th:text="${minDate}"></h1> -->
+            <div class="searchbar2">
+                <input type="text" name="" id="" placeholder="Search">
+                <div class="searchbtn">
+                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                        class="icn srchicn" alt="search-button">
+                </div>
+            </div>
+            <div class="report-container">
+                <div class="container mt-5">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title mb-4">Room Booking</h2>
+                            <form action="/feedback" method="get" id="bookingForm">
+                                <table class="table-border">
+                                    <tr>
+                                        <th> Selected Room type:</th>
+                                        <th th:text="${roomType}"></th>
+                                    </tr>
+                                    <tr>
+                                        <th> Number of guests:</th>
+                                        <th th:text="${guests}"> </th>
+                                    </tr>
+                                    <tr>
+                                        <th> Check-in time</th>
+                                        <th th:text="${checkIn}"> </th>
+                                    </tr>
+                                    <tr>
+                                        <th> check-out time</th>
+                                        <th th:text="${checkOut}"> </th>
+                                    </tr>
+                                </table>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>

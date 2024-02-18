@@ -35,7 +35,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h2 class="card-title mb-4">Room Booking</h2>
-                            <form method="post" id="bookingForm">
+                            <form action="/room-booking-summary" method="get" id="bookingForm">
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label>Select Room Type:</label>
@@ -77,7 +77,7 @@
                                         <input type="date" th:attr="min=${minDate}" id="checkOut" name="checkOut" class="form-control" required>
                                     </div>
 
-                                    <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+                                    <button type="submit" class="btn btn-primary"  >Proceed to Payment</button>
 
                                 </div>
                             </form>
