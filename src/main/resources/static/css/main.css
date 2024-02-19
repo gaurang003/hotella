@@ -339,3 +339,516 @@
           border-collapse: collapse;
         }
     }
+
+
+/* Styling for Button */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+/* Hover effect for Button */
+.button:hover {
+  background-color: #45a049; /* Darker Green */
+}
+
+/* Styling for Textbox */
+.textbox {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Styling for Textbox when focused */
+.textbox:focus {
+  border-color: #007bff; /* Blue */
+  outline: none;
+}
+
+
+/* Styling for container */
+.container {
+  margin-top: 0rem; /* You can adjust the value as needed */
+}
+
+/* Styling for Textbox */
+.container input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px; /* Adding margin at the bottom for spacing */
+}
+
+/* Styling for Button */
+.container button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-bottom: 10px; /* Adding margin at the bottom for spacing */
+}
+
+/* Hover effect for Button */
+.container button:hover {
+  background-color: #45a049; /* Darker Green */
+}
+
+/* Styling for Text */
+.container p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px; /* Adding margin at the bottom for spacing */
+}
+
+
+/* Styling for container */
+.container {
+  margin-top: 0rem; /* You can adjust the value as needed */
+}
+
+/* Styling for Text */
+.container p,
+.container span,
+.container h1,
+.container h2,
+.container h3,
+.container h4,
+.container h5,
+.container h6 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 20px; /* Adding margin at the bottom for spacing */
+}
+
+
+/* Styling for Text Container */
+.text-container {
+  background-color: #f9f9f9; /* Light Gray Background */
+  padding: 20px; /* Add padding for spacing */
+  border-radius: 8px; /* Rounded Corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box Shadow for Depth */
+}
+
+/* Styling for Headings */
+.text-container h1,
+.text-container h2,
+.text-container h3,
+.text-container h4,
+.text-container h5,
+.text-container h6 {
+  color: #333; /* Dark Text Color */
+  margin-top: 0; /* Remove Default Margin */
+  margin-bottom: 15px; /* Add Margin Below Headings */
+}
+
+/* Styling for Paragraphs */
+.text-container p {
+  color: #666; /* Medium Gray Text Color */
+  line-height: 1.6; /* Improved Readability with Slightly Increased Line Height */
+  margin-top: 0; /* Remove Default Margin */
+  margin-bottom: 15px; /* Add Margin Below Paragraphs */
+}
+
+/* Styling for Links */
+.text-container a {
+  color: #007bff; /* Link Color */
+  text-decoration: none; /* Remove Underline */
+}
+
+.text-container a:hover {
+  text-decoration: underline; /* Add Underline on Hover */
+}
+
+
+
+/* Styling for Report Container */
+.report-container {
+  background-color: #ffffff; /* White Background */
+  border-radius: 8px; /* Rounded Corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box Shadow for Depth */
+  padding: 20px; /* Add padding for spacing */
+  font-family: Arial, sans-serif; /* Specify Font Family */
+}
+
+/* Styling for Report Title */
+.report-title {
+  font-size: 24px; /* Larger Font Size for Title */
+  color: #333333; /* Dark Text Color */
+  margin-top: 0; /* Remove Default Margin */
+  margin-bottom: 20px; /* Add Margin Below Title */
+}
+
+/* Styling for Section Headings */
+.report-section {
+  font-size: 20px; /* Font Size for Section Headings */
+  color: #333333; /* Dark Text Color */
+  margin-top: 0; /* Remove Default Margin */
+  margin-bottom: 15px; /* Add Margin Below Section Headings */
+}
+
+/* Styling for Paragraphs */
+.report-paragraph {
+  color: #666666; /* Medium Gray Text Color */
+  line-height: 1.6; /* Improved Readability with Slightly Increased Line Height */
+  margin-top: 0; /* Remove Default Margin */
+  margin-bottom: 15px; /* Add Margin Below Paragraphs */
+}
+
+/* Styling for Links */
+.report-link {
+  color: #007bff; /* Link Color */
+  text-decoration: none; /* Remove Underline */
+}
+
+.report-link:hover {
+  text-decoration: underline; /* Add Underline on Hover */
+}
+
+
+
+.room-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.room-container div {
+    text-align: center;
+    flex-grow: 1;
+}
+
+.room-container input[type="radio"] {
+     /* Hide the actual radio buttons */
+}
+
+.room-container label {
+    display: block;
+}
+
+
+.form-group {
+  margin-bottom: 20px; /* Adjust spacing between form groups */
+}
+
+.form-group label {
+  display: block; /* Make labels display as block elements */
+  margin-bottom: 5px; /* Adjust spacing between label and input */
+  font-weight: bold; /* Optionally make labels bold */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea,
+.form-group select {
+  width: 100%; /* Make inputs take up full width of their container */
+  padding: 10px; /* Adjust input padding */
+  border: 1px solid #ccc; /* Add a border to inputs */
+  border-radius: 5px; /* Add rounded corners to inputs */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.form-group textarea {
+  resize: vertical; /* Allow vertical resizing of textareas */
+}
+
+.form-group select {
+  /* Customize select dropdown appearance */
+  appearance: none;
+  padding-right: 30px; /* Add space for custom dropdown arrow */
+  background: transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23777"><path d="M7 10l5 5 5-5z"/></svg>'); /* Custom dropdown arrow */
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 20px;
+}
+
+/* Optional: Style form validation messages */
+.form-group input:invalid,
+.form-group textarea:invalid,
+.form-group select:invalid {
+  border-color: #ff7f7f; /* Change border color for invalid inputs */
+}
+
+.form-group .error-message {
+  color: #ff7f7f; /* Set color for error messages */
+  font-size: 12px; /* Adjust font size for error messages */
+  margin-top: 5px; /* Add space between input and error message */
+}
+
+
+.room-container {
+  display: flex; /* Use flexbox to align images horizontally */
+  flex-wrap: wrap; /* Allow images to wrap to next line if container width is exceeded */
+}
+
+.room-container img {
+  width: 200px; /* Set width of images */
+  height: 200px; /* Set height of images */
+  margin: 10px; /* Add margin around each image */
+  border: 1px solid #ccc; /* Add border to images */
+  border-radius: 5px; /* Add rounded corners to images */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+.room-container {
+  display: flex; /* Use flexbox to align images horizontally */
+  flex-wrap: wrap; /* Allow images to wrap to next line if container width is exceeded */
+}
+
+.room-container img {
+  width: 200px; /* Set width of images */
+  height: 200px; /* Set height of images */
+  margin: 10px; /* Add margin around each image */
+  border: 1px solid #ccc; /* Add border to images */
+  border-radius: 5px; /* Add rounded corners to images */
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+}
+
+
+/* Reset CSS */
+body {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f5f5f5;
+    padding: 20px;
+}
+
+.header .logo {
+    font-size: 25px;
+    font-family: 'Sriracha', cursive;
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f5f5f5;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: #000;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+}
+
+.nav-items a:hover {
+    color: #007bff;
+}
+
+/* Main Intro */
+.intro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 520px;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://www.bpimaging.com/assets/uploads/2015/02/hotel-photography-exterior-quality-inn-suites.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.intro h1 {
+    font-family: 'Roboto', sans-serif;
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.intro p {
+    font-size: 20px;
+    text-transform: uppercase;
+    margin: 20px 0;
+}
+
+.intro button {
+    background-color: #5edaf0;
+    color: #000;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4);
+    transition: all 0.3s ease;
+}
+
+.intro button:hover {
+    background-color: #4bc7e9;
+    color: #fff;
+}
+
+/* Achievements */
+.achievements {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 80px;
+}
+
+.achievements .work {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.achievements .work i {
+    font-size: 50px;
+    color: #333333;
+    border-radius: 50%;
+    border: 2px solid #333333;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.achievements .work .work-heading {
+    font-size: 20px;
+    color: #756f6f;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.achievements .work .work-text {
+    font-size: 15px;
+    color: #807676;
+    margin: 10px 0;
+}
+
+/* About Me */
+.about-me {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 80px;
+    border-top: 20px solid #eeeeee;
+}
+
+.about-me img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.about-me-text h2 {
+    font-size: 30px;
+    color: #333333;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.about-me-text p {
+    font-size: 15px;
+    color: #585858;
+    margin: 10px 0;
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #302f49;
+    padding: 40px;
+}
+
+.footer .copy {
+    color: #fff;
+}
+
+.bottom-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 40px 0;
+}
+
+.bottom-links .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.bottom-links .links span {
+    font-size: 20px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+.bottom-links .links a {
+    text-decoration: none;
+    color: #a1a1a1;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+.bottom-links .links a:hover {
+    color: #fff;
+}
+
+
+
+.container {
+    width: 80%; /* Adjust the width of the container as needed */
+    margin: 0 auto; /* Center the container horizontally */
+}
+
+h1 {
+    margin-bottom: 20px; /* Add space below the h1 header */
+}
+
+h2 {
+    margin-top: 10px; /* Add space above each h2 header */
+}
+
+form {
+    margin-top: 0px; /* Add space between the h1 header and the form */
+}
+
+select, button {
+    margin-top: 0px; /* Add space between elements */
+}
+
+#totalPrice {
+    font-weight: bold; /* Make the total price bold */
+}
+
+

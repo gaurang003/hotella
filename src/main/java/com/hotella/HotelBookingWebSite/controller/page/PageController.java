@@ -1,20 +1,24 @@
 package com.hotella.HotelBookingWebSite.controller.page;
 
 import com.hotella.HotelBookingWebSite.dto.BookingSummary;
-import org.springframework.http.MediaType;
+import com.hotella.HotelBookingWebSite.entity.Feedback;
+import com.hotella.HotelBookingWebSite.service.FeedbackService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
 public class PageController {
+
+    @Autowired
+    FeedbackService feedbackService;
 
     @GetMapping("/room-booking")
     public String getRoomBookingPage(Model model) {
@@ -47,11 +51,12 @@ public class PageController {
 
 
     @GetMapping(value = "/room-booking-summary")
-    public String getRookBookingSummaryPage( @RequestParam String roomType,
-                                             @RequestParam Integer guests,
-                                             @RequestParam String checkIn,
-                                             @RequestParam String checkOut,
-                                             Model model) {
+    public String getRookBookingSummaryPage(
+            @RequestParam String roomType,
+            @RequestParam Integer guests,
+            @RequestParam String checkIn,
+            @RequestParam String checkOut,
+            Model model) {
 
         model.addAttribute( "roomType", roomType);
         model.addAttribute("guests", guests);
@@ -59,4 +64,22 @@ public class PageController {
         model.addAttribute("checkOut", checkOut);
         return "room-booking-summary";
     }
+
+    @PostMapping(value = "/room-booking-summary")
+    public String getRookBookingSummaryPage( @ModelAttribute BookingSummary bookingSummary,
+            Model model) {
+
+        model.addAttribute( "roomType", bookingSummary.getRoomType());
+        model.addAttribute("guests", bookingSummary.getGuests());
+        model.addAttribute("checkIn", bookingSummary.getCheckIn());
+        model.addAttribute("checkOut", bookingSummary.getCheckOut());
+        return "room-booking-summary";
+    }
+
+    @PostMapping(value = "/feedback-output")
+    public String saveFeedback(@ModelAttribute("feedback") Feedback feedback){
+        feedbackService.saveFeedback(feedback);
+        return "feedback-output";
+    }
+
 }
