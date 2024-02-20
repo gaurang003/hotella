@@ -3,6 +3,7 @@ package com.hotella.HotelBookingWebSite.controller.page;
 import com.hotella.HotelBookingWebSite.dto.BookingSummary;
 import com.hotella.HotelBookingWebSite.entity.Feedback;
 import com.hotella.HotelBookingWebSite.service.FeedbackService;
+import com.hotella.HotelBookingWebSite.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,9 @@ public class PageController {
 
     @Autowired
     FeedbackService feedbackService;
+
+    @Autowired
+    FoodService foodService;
 
     @GetMapping("/room-booking")
     public String getRoomBookingPage(Model model) {
@@ -41,6 +45,9 @@ public class PageController {
 
     @GetMapping("/canteen")
     public String getCanteenPage(Model model) {
+
+        model.addAttribute("foodCategoryList", foodService.getAllFoodCategory());
+        model.addAttribute("foods", foodService.getAllFood());
         return "canteen";
     }
 
@@ -49,6 +56,11 @@ public class PageController {
         return "profile";
     }
 
+    @GetMapping("/admin")
+    public String getAdminPage(Model model) {
+
+        return "admin";
+    }
 
     @GetMapping(value = "/room-booking-summary")
     public String getRookBookingSummaryPage(
@@ -81,5 +93,7 @@ public class PageController {
         feedbackService.saveFeedback(feedback);
         return "feedback-output";
     }
+
+
 
 }

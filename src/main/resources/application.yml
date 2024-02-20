@@ -3,7 +3,9 @@ spring:
     url: jdbc:mysql://localhost:3306/registration_db
     username: root
     password: ${DB_PASSWORD:12345678}
-
+  sql:
+    init:
+      mode: never
   jpa:
     properties:
       hibernate:

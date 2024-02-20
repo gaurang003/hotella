@@ -32,44 +32,25 @@
                 <div class="container">
                     <h1>Canteen Menu</h1>
 
-                    <form th:action="@{/checkout}" method="post">
-                     <h2>Snacks</h2>
-                        <select name="snacks" id="snacks">
-                            <option value="0">Select Snack</option>
-                            <option value="2.50">Chips - ₹50/-</option>
-                            <option value="1.50">Cookies - ₹80/-</option>
-                            <!-- Add more snack options here -->
-                        </select>
-
-                        <h2>Drinks</h2>
-                        <select name="drinks" id="drinks">
-                            <option value="0">Select Drink</option>
-                            <option value="1.50">Soda - 40/-</option>
-                            <option value="2.00">Juice - ₹60/-</option>
-                            <!-- Add more drink options here -->
-                        </select>
-
-                        <h2>Dishes</h2>
-                        <select name="dishes" id="dishes">
-                            <option value="0">Select Dish</option>
-                            <option value="8.00">Burger - ₹300/-</option>
-                            <option value="10.00">Pizza - ₹400/-</option>
-                            <!-- Add more dish options here -->
-                        </select>
-
-                        <h2>Junk Food</h2>
-                        <select name="junkFood" id="junkFood">
-                            <option value="0">Select Junk Food</option>
-                            <option value="3.00">Candy - ₹200/-</option>
-                            <option value="2.50">Popcorn - ₹150/-</option>
-                            <!-- Add more junk food options here -->
-                        </select>
-
-                        <h2>Total Price: ₹<span id="totalPrice">0.00</span></h2>
-
-                        <button type="submit">Proceed to Payment</button>
-                    </form>
-
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="food: ${foods}">
+                            <td th:text="${food.name}"></td>
+                            <td th:text="${food.description}"></td>
+                            <td th:text="${food.foodCategory.name}"></td>
+                            <td th:text="${food.price}"></td>
+                            <td> <button> add to cart</button></td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
