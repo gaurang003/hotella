@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Room {
-        @Id
+     /*   @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         private Long id;
 
@@ -19,8 +19,17 @@ public class Room {
 
         private double price;
 
-        // Getters and setters
-    }
+        // Getters and setters  */
+     @Id
+     @GeneratedValue(strategy = GenerationType.IDENTITY)
+     private Long id;
+
+        private String name;
+        private String description;
+        private String roomType;
+        private double costPerDay;
+
+}
 
 
 

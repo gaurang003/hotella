@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -8,19 +8,93 @@
 				initial-scale=1.0">
     <title>Hotella</title>
     <link rel="stylesheet" href="css/main.css">
-
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </head>
 
 <body>
 <!-- for header part -->
 <div th:replace="fragments/header :: header"></div>
+
 <div class="main-container">
-
     <div th:replace="fragments/navbar :: navbar"></div>
-
     <div class="main">
 
+        <div class="searchbar2">
+            <input type="text" name="" id="" placeholder="Search">
+            <div class="searchbtn">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                     class="icn srchicn" alt="search-button">
+            </div>
+        </div>
+        <div class="report-container">
+            <div class="container">
+                <div class="container">
+                    <ul class="nav nav-pills nav-fill">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-toggle="tab" href="#room">Room</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#canteen">Canteen</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content mt-3">
+                        <!-- Room Tab -->
+                        <div id="room" class="tab-pane fade show active">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Room Type</th>
+                                    <th>No. of Guests</th>
+                                    <th>Check-In</th>
+                                    <th>Check-Out</th>
+                                    <th>Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="food: ${foods}">
+<!--                                    <td th:text="${room.type}">Standard</td>-->
+<!--                                    <td th:text="${room.guests}">2</td>-->
+<!--                                    <td th:text="${room.checkIn}">2024-02-21</td>-->
+<!--                                    <td th:text="${room.checkOut}">2024-02-28</td>-->
+<!--                                    <td th:text="${room.price}">$100</td>-->
+<!--                                    <td> <button> add to cart</button></td>-->
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- Canteen Tab -->
+                        <div id="canteen" class="tab-pane fade">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Food Name</th>
+                                    <th>Description</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="food: ${foods}">
+                                    <td th:text="${food.name}"></td>
+                                    <td th:text="${food.description}"></td>
+                                    <td th:text="${food.foodCategory.name}"></td>
+                                    <td th:text="${food.price}"></td>
+                                    <td> <button> Edit</button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
     </div>
 </div>
 </body>

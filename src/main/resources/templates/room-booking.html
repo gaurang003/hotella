@@ -9,87 +9,99 @@
 				initial-scale=1.0">
     <title>Hotella</title>
     <link rel="stylesheet" href="responsive.css" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"
-        ...>
+          ...>
     <link rel="stylesheet" href="@{/webjars/bootstrap/css/bootstrap.min.css}"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="css/main.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript" src="js/room.js"></script>
+    <style>
+        /* Custom CSS for framing radio button image options */
+        .room-container {
+            display: flex;
+            justify-content: space-between;
+        }
+        .room-container > div {
+            border: 2px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px; /* Increased margin for proper distance */
+            width: 30%; /* Adjust width as needed */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow effect for attractiveness */
+        }
+        .room-container img {
+            display: block;
+            margin: 0 auto;
+            width: 100%;
+            height: auto;
+        }
+    </style>
 </head>
 
 <body>
-    <!-- for header part -->
-    <div th:replace="fragments/header :: header"></div>
-    <div class="main-container">
-        <div th:replace="fragments/navbar :: navbar"></div>
-        <div class="main">
-
-           <!-- <h1 th:text="${minDate}"></h1> -->
-            <div class="searchbar2">
-                <input type="text" name="" id="" placeholder="Search">
-                <div class="searchbtn">
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
-                        class="icn srchicn" alt="search-button">
-                </div>
+<!-- for header part -->
+<div th:replace="fragments/header :: header"></div>
+<div class="main-container">
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="main">
+        <div class="searchbar2">
+            <input type="text" name="" id="" placeholder="Search">
+            <div class="searchbtn">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                     class="icn srchicn" alt="search-button">
             </div>
-            <div class="report-container">
-                <div class="container mt-5">
-                    <div class="card">
-                        <div class="card-body">
-                            <h2 class="card-title mb-4">Room Booking</h2>
-                            <form action="/room-booking-summary" method="post" id="bookingForm">
-                                <div class="form-group">
-                                    <div class="form-group">
-                                        <label>Select Room Type:</label>
-                                        <div class="room-container">
-                                            <div>
-                                                <input type="radio" id="normalRoom" name="roomType" value="normal" data-price="100" required>
-                                                <label for="normalRoom">
-                                                    <h3>Normal Room</h3><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/77329713704049.5627727f54be5.jpg" alt="Normal Room" width="150">
-                                                    <p>Price: ₹100 per hour</p>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <input type="radio" id="deluxeRoom" name="roomType" value="deluxe" data-price="200">
-                                                <label for="deluxeRoom">
-                                                    <h3>Deluxe Room</h3><img src="https://www.grandlordhotel.com/medias/room/big/78/deluxe02.jpg" alt="Deluxe Room" width="150">
-                                                    <p>Price: ₹200 per hour</p>
-                                                </label>
-                                            </div>
-                                            <div>
-                                                <input type="radio" id="luxuriousRoom" name="roomType" value="luxurious" data-price="300">
-                                                <label for="luxuriousRoom">
-                                                    <h3>Luxurious Room</h3><img src="https://www.jetsetter.com//uploads/sites/7/2018/04/mcdO57rG-1380x1035.jpeg" alt="Luxurious Room" width="150">
-                                                    <p>Price: ₹300 per hour</p>
-                                                </label>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                        <label for="guests">Number of Guests:</label>
-                                        <input type="number" id="guests" name="guests" class="form-control" min="1" required>
+        </div>
+        <div class="report-container">
+            <div class="container">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title mb-4">Room Booking</h2>
+                        <form action="/room-booking-summary" method="post" id="bookingForm">
+                            <div class="form-group">
+                                <label>Select Room Type:</label>
+                                <div class="room-container">
+                                    <div class="col-md-4">
+                                        <input type="radio" id="normalRoom" name="roomType" value="normal" data-price="100" required>
+                                        <label for="normalRoom">
+                                            <h3>Normal Room</h3><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/77329713704049.5627727f54be5.jpg" alt="Normal Room" width="150">
+                                            <p>Price: ₹100 per hour</p>
+                                        </label>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for="checkIn">Check-in Date:</label>
-                                        <input type="date" th:attr="min=${minDate}" id="checkIn" name="checkIn" class="form-control" onchange="checkInChanged(event)" required>
+                                    <div class="col-md-4">
+                                        <input type="radio" id="deluxeRoom" name="roomType" value="deluxe" data-price="200">
+                                        <label for="deluxeRoom">
+                                            <h3>Deluxe Room</h3><img src="https://www.grandlordhotel.com/medias/room/big/78/deluxe02.jpg" alt="Deluxe Room" width="150">
+                                            <p>Price: ₹200 per hour</p>
+                                        </label>
                                     </div>
-
-                                    <div class="form-group">
-                                        <label for="checkOut">Check-out Date:</label>
-                                        <input type="date" th:attr="min=${minDate}" id="checkOut" name="checkOut" class="form-control" required>
-                                    </div>
-
-                                    <button type="submit" class="btn btn-primary"  >Proceed to Payment</button>
-
+                                    <div class="col-md-4">
+                                        <input type="radio" id="luxuriousRoom" name="roomType" value="luxurious" data-price="300">
+                                        <label for="luxuriousRoom">
+                                            <h3>Luxurious Room</h3><img src="https://www.jetsetter.com//uploads/sites/7/2018/04/mcdO57rG-1380x1035.jpeg" alt="Luxurious Room" width="150">
+                                            <p>Price: ₹300 per hour</p>
+                                        </label>
                                     </div>
                                 </div>
-                            </form>
+                            </div>
+                            <div class="form-group">
+                                <label for="guests">Number of Guests:</label>
+                                <input type="number" id="guests" name="guests" class="form-control" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkIn">Check-in Date:</label>
+                                <input type="date" th:attr="min=${minDate}" id="checkIn" name="checkIn" class="form-control" onchange="checkInChanged(event)" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="checkOut">Check-out Date:</label>
+                                <input type="date" th:attr="min=${minDate}" id="checkOut" name="checkOut" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Proceed to Payment</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
 </body>
 
 </html>

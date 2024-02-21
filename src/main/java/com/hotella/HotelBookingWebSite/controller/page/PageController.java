@@ -59,6 +59,7 @@ public class PageController {
     @GetMapping("/admin")
     public String getAdminPage(Model model) {
 
+        model.addAttribute("foods", foodService.getAllFood());
         return "admin";
     }
 
