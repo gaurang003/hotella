@@ -2,47 +2,47 @@
     <div class="navcontainer">
         <nav class="nav">
             <div class="nav-upper-options">
-                <div class="nav-option option1">
+                <div th:classappend="${servletPath.startsWith('/dashboard') ? 'active-nav':''}" class="nav-option">
                     <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
                         class="nav-img" alt="dashboard">
                     <h3> Dashboard</h3>
                 </div>
 
-                <div class="option2 nav-option">
+                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/room-booking') ? 'active-nav':''}" class="nav-option">
                     <img src="https://img.icons8.com/?size=50&id=10698&format=png" class="nav-img"
                         alt="articles">
                   <!--  <h3><a href="room_booking.html" style="text-decoration:none">Room</a></h3>  -->
                     <h3><a th:href="room-booking" style="text-decoration:none">Room</a></h3>
                 </div>
 
-                <div class="nav-option option3">
+                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/feedback') ? 'active-nav':''}" class="nav-option ">
                     <img src="https://img.icons8.com/?size=80&id=b4p0kAjqYDOk&format=png" class="nav-img"
                         alt="report">
                     <h3><a th:href="feedback" style="text-decoration:none">Feedback</a></h3>
                 </div>
 
-                <div class="nav-option option4">
+                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/canteen') ? 'active-nav':''}" class="nav-option ">
                     <img src="https://img.icons8.com/?size=80&id=G0m82W4nFfPy&format=png" class="nav-img"
                         alt="institution">
                     <h3><a th:href="canteen" style="text-decoration:none">Canteen</a></h3>
                 </div>
 
-                <div class="nav-option option5">
+                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/profile') ? 'active-nav':''}" class="nav-option ">
                     <img src="https://img.icons8.com/fluency/2x/test-account.png" class="nav-img"
                         alt="blog">
                     <h3><a th:href="profile" style="text-decoration:none">Profile</a></h3>
                 </div>
 
-                <div class="nav-option logout">
+                <div th:if="${isAdmin}" th:classappend="${servletPath.startsWith('/admin') ? 'active-nav':''}" class="nav-option">
                     <img src="https://cdn-icons-png.flaticon.com/128/9977/9977388.png" class="nav-img"
                          alt="admin">
                     <h3><a th:href="admin" style="text-decoration:none">Admin</a></h3>
                 </div>
 
-                <div class="nav-option logout">
+                <div th:classappend="${servletPath.startsWith('/dashboard') ? 'active-nav':''}" class="nav-option">
                     <img src="https://cdn-icons-png.flaticon.com/128/10313/10313098.png" class="nav-img"
                         alt="logout">
-                    <h3><a th:href="login" style="text-decoration:none">Logout</a></h3>
+                    <h3><a th:href="logout" style="text-decoration:none">Logout</a></h3>
 
                 </div>
 
