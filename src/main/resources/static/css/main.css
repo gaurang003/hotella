@@ -188,13 +188,13 @@
     align-items: center;
     }
 
-    .option1 {
+    .active-nav {
     border-left: 5px solid #010058af;
     background-color: var(--Border-color);
     color: white;
     cursor: pointer;
     }
-    .option1:hover {
+    .active-nav:hover {
     border-left: 5px solid #010058af;
     background-color: var(--Border-color);
     }
