@@ -2,6 +2,7 @@ package com.hotella.HotelBookingWebSite.controller.page;
 
 import com.hotella.HotelBookingWebSite.dto.BookingSummary;
 import com.hotella.HotelBookingWebSite.entity.Feedback;
+import com.hotella.HotelBookingWebSite.security.CustomUserDetailsService;
 import com.hotella.HotelBookingWebSite.service.FeedbackService;
 import com.hotella.HotelBookingWebSite.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,10 @@ public class PageController {
 
     @Autowired
     FoodService foodService;
+
+    @Autowired
+    CustomUserDetailsService customUserDetailsService;
+
 
     @GetMapping("/room-booking")
     public String getRoomBookingPage(Model model) {
@@ -51,10 +56,13 @@ public class PageController {
         return "canteen";
     }
 
+
     @GetMapping("/profile")
     public String getProfilePage(Model model) {
+        model.addAttribute("user", customUserDetailsService.getCurrentUser());
         return "profile";
     }
+
 
     @GetMapping("/admin")
     public String getAdminPage(Model model) {

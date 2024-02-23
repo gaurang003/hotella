@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -34,11 +35,14 @@ public class UserServiceImpl implements UserService  {
         // encrypt the password using spring security
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
-        Role role = roleRepository.findByName("ROLE_USER");
-        if(role == null){
-            role = checkRoleExist();
+        List<Role> roleList = roleRepository.findAll();
+        if (roleList.isEmpty()) {
+            createRoles();
         }
-        user.setRoles(Arrays.asList(role));
+
+        Optional<Role> role = roleList.stream().filter(r -> r.getName().equals("ROLE_USER")).findFirst();
+
+        user.setRoles(Arrays.asList(role.get()));
         userRepository.save(user);
     }
 
@@ -64,10 +68,15 @@ public class UserServiceImpl implements UserService  {
         return userDto;
     }
 
-    private Role checkRoleExist(){
-        Role role = new Role();
-        role.setName("ROLE_ADMIN");
-        return roleRepository.save(role);
+    private void createRoles() {
+
+        Role adminRole = new Role();
+        adminRole.setName("ROLE_ADMIN");
+        roleRepository.save(adminRole);
+
+        Role userRole = new Role();
+        userRole.setName("ROLE_USER");
+        roleRepository.save(userRole);
     }
 
 }
