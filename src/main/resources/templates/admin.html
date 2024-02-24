@@ -43,80 +43,33 @@
                             <a class="nav-link" data-toggle="tab" href="#bookings">Bookings</a>
                         </li>
                     </ul>
-                    <div class="tab-content mt-3">
+                    <div class="tab-content mt-3" style="display: flex; flex-direction: column;">
                         <!-- Room Tab -->
                         <div id="room" class="tab-pane fade show active">
+                            <!-- Button trigger add food modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#roomModalLong" style="align-self: end;">
+                                Add room type
+                            </button>
 
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Room Type</th>
-                                    <th>No. of Guests</th>
-                                    <th>Check-In</th>
-                                    <th>Check-Out</th>
-                                    <th>Price</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="room: ${room}">
-                                    <td th:text="${room.roomtype}">Standard</td>
-                                    <td th:text="${room.guests}">2</td>
-                                    <td th:text="${room.checkIn}">2024-02-21</td>
-                                    <td th:text="${room.checkOut}">2024-02-28</td>
-                                    <td th:text="${room.price}">₹1000</td>
-                                  <td> <button> Add to cart</button></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-admin">Add</button> <button type="submit" class="btn-admin" >Submit</button>
+                            <div th:replace="~{component/admin-room-tab-component :: admin-room-tab-component}"></div>
                         </div>
                         <!-- Canteen Tab -->
                         <div id="canteen" class="tab-pane fade">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Food Name</th>
-                                    <th>Description</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="food: ${foods}">
-                                    <td th:text="${food.name}"></td>
-                                    <td th:text="${food.description}"></td>
-                                    <td th:text="${food.foodCategory.name}"></td>
-                                    <td th:text="${food.price}"></td>
-                                    <td> <button class="edit"> Edit</button></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-admin">Add</button>  <button type="submit" class="btn-admin" >Submit</button>
+                            <!-- Button trigger add food modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodModalLong" style="align-self: end;">
+                                Add food in canteen
+                            </button>
+
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodCategoryModalLong" style="align-self: end;">
+                                Add food Category
+                            </button>
+
+                            <div th:replace="~{component/admin-canteen-tab-component :: admin-canteen-tab-component}"></div>
+
                         </div>
                         <!-- Booking Tab -->
                         <div id="booking" class="tab-pane fade">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th>Guest Name</th>
-                                    <th>Room</th>
-                                    <th>CheckIn</th>
-                                    <th>CheckOut</th>
-                                    <th>Price</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="booking: ${bookings}">
-                                    <td th:text="${booking.name}"></td>
-                                    <td th:text="${booking.room.roomtype}"></td>
-                                    <td th:text="${booking.checkIn}"></td>
-                                    <td th:text="${booking.checkIn}"></td>
-                                    <td th:text="${booking.price}"></td>
-                                    <td> <button class="edit"> Edit</button></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            <button class="btn btn-admin">Add</button>  <button type="submit" class="btn-admin" >Submit</button>
+                            <div th:replace="~{component/admin-booking-tab-component :: admin-booking-tab-component}"></div>
                         </div>
                     </div>
                 </div>
@@ -128,6 +81,71 @@
         </div>
     </div>
 </div>
+
+<!-- add food Modal -->
+<div class="modal fade" id="foodModalLong" tabindex="-1" role="dialog" aria-labelledby="foodModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="foodModalLongTitle">Add food</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--                add food form-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- add room Modal -->
+<div class="modal fade" id="roomModalLong" tabindex="-1" role="dialog" aria-labelledby="roomModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="roomModalLongTitle">Add room type</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--                room form-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- add food category Modal -->
+<div class="modal fade" id="foodCategoryModalLong" tabindex="-1" role="dialog" aria-labelledby="foodCategoryModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="foodCategoryModalLongTitle"> Add food category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--                food category form-->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 
 </html>

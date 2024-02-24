@@ -1,0 +1,23 @@
+<admin-booking-tab-component>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Guest Name</th>
+            <th>Room</th>
+            <th>CheckIn</th>
+            <th>CheckOut</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking: ${bookings}">
+            <td th:text="${booking.name}"></td>
+            <td th:text="${booking.room.roomtype}"></td>
+            <td th:text="${booking.checkIn}"></td>
+            <td th:text="${booking.checkIn}"></td>
+            <td th:text="${booking.price}"></td>
+            <td> <button class="edit"> Edit</button></td>
+        </tr>
+        </tbody>
+    </table>
+</admin-booking-tab-component>
