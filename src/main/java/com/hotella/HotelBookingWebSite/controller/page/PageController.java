@@ -102,7 +102,10 @@ public class PageController {
         feedbackService.saveFeedback(feedback);
         return "feedback-output";
     }
-
+    @GetMapping("/rating")
+    public String getRatingPage(Model model) {
+        return "rating";
+    }
 
 
 }

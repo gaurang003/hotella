@@ -1,36 +1,44 @@
 <navbar xmlns:th="http://www.w3.org/1999/xhtml">
+    <script type="text/javascript" src="js/navbar.js"></script>
+
     <div class="navcontainer">
         <nav class="nav">
             <div class="nav-upper-options">
-                <div th:classappend="${servletPath.startsWith('/dashboard') ? 'active-nav':''}" class="nav-option">
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182148/Untitled-design-(29).png"
+                <div th:classappend="${servletPath.startsWith('/home') ? 'active-nav':''}" class="nav-option">
+                    <img src="https://cdn-icons-png.flaticon.com/128/9055/9055096.png"
                         class="nav-img" alt="dashboard">
-                    <h3> Dashboard</h3>
+                    <h3> <a th:href="home" style="text-decoration:none">Dashboard</a> </h3>
                 </div>
 
                 <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/room-booking') ? 'active-nav':''}" class="nav-option">
-                    <img src="https://img.icons8.com/?size=50&id=10698&format=png" class="nav-img"
+                    <img src="https://cdn-icons-png.flaticon.com/128/7481/7481036.png" class="nav-img"
                         alt="articles">
                   <!--  <h3><a href="room_booking.html" style="text-decoration:none">Room</a></h3>  -->
                     <h3><a th:href="room-booking" style="text-decoration:none">Room</a></h3>
                 </div>
 
-                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/feedback') ? 'active-nav':''}" class="nav-option ">
-                    <img src="https://img.icons8.com/?size=80&id=b4p0kAjqYDOk&format=png" class="nav-img"
-                        alt="report">
-                    <h3><a th:href="feedback" style="text-decoration:none">Feedback</a></h3>
-                </div>
-
                 <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/canteen') ? 'active-nav':''}" class="nav-option ">
-                    <img src="https://img.icons8.com/?size=80&id=G0m82W4nFfPy&format=png" class="nav-img"
+                    <img src="https://cdn-icons-png.flaticon.com/128/737/737967.png" class="nav-img"
                         alt="institution">
                     <h3><a th:href="canteen" style="text-decoration:none">Canteen</a></h3>
+                </div>
+
+                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/feedback') ? 'active-nav':''}" class="nav-option ">
+                    <img src="https://cdn-icons-png.flaticon.com/128/2931/2931308.png" class="nav-img"
+                         alt="report">
+                    <h3><a th:href="feedback" style="text-decoration:none">Feedback</a></h3>
                 </div>
 
                 <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/profile') ? 'active-nav':''}" class="nav-option ">
                     <img src="https://img.icons8.com/fluency/2x/test-account.png" class="nav-img"
                         alt="blog">
                     <h3><a th:href="profile" style="text-decoration:none">Profile</a></h3>
+                </div>
+
+                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/rating') ? 'active-nav':''}" class="nav-option ">
+                    <img src="https://cdn-icons-png.flaticon.com/128/9732/9732828.png" class="nav-img"
+                         alt="report">
+                    <h3><a th:href="rating" style="text-decoration:none">Rating</a></h3>
                 </div>
 
                 <div th:if="${isAdmin}" th:classappend="${servletPath.startsWith('/admin') ? 'active-nav':''}" class="nav-option">

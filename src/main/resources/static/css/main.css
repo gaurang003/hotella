@@ -811,34 +811,38 @@ body {
 }
 
 
-body {
-            background-color: #6610f2;
-            font-family: 'Roboto', sans-serif;
-        }
-        .profile-card {
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-        .card-header {
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 8px 8px 0 0;
-        }
-        .history-card {
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-        .history-card .card-header {
-            background-color: #6c757d;
-            color: #fff;
-            border-radius: 8px 8px 0 0;
-        }
+/*profile page*/
+profile-card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background color: #
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.profile-card .card-header {
+    background-color: #12486B;
+
+    border-bottom: 1px solid #ccc;
+}
+
+.history-card {
+    margin-top: 20px;
+    border-radius: 10px;
+     background-color: #0174BE;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.history-card .card-header {
+    background-color: #0174BE;
+    border-bottom: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    .searchbar2 input[type="text"] {
+        width: 100%;
+    }
+}
 
 
 /*  frame to the roomtype option*/
@@ -846,3 +850,66 @@ body {
               border: 2px solid #ccc;
               padding: 10px;
               margin-bottom: 10px;
+         }
+.btn-primary.float-right {
+    float: right;
+    }
+
+    /*  rating page */
+        body {
+                  background-color: #f8f9fa;
+              }
+
+              .form-label {
+                  font-weight: bold;
+              }
+              .rating input {
+                  display: none;
+              }
+              .rating label {
+                  font-size: 30px;
+                  color: #ccc;
+                  cursor: pointer;
+              }
+              .rating input:checked ~ label {
+                  color: gold;
+              }
+              .rating label:hover {
+                  color: gold;
+              }
+
+              .recent-ratings {
+                  background-color: #f1f1f1;
+                  padding: 20px;
+                  border-radius: 10px;
+              }
+              .recent-ratings h2 {
+                  font-size: 24px;
+                  margin-bottom: 20px;
+              }
+              .recent-ratings p {
+                  font-size: 18px;
+                  margin-bottom: 5px;
+ @media (min-width: 768px)
+ .col-md-6 {
+     flex: 0 0 auto;
+     width: 100%;
+ }
+
+
+
+              /* admin ka submit button*/
+               .container {
+                      text-align: center;
+                  }
+
+                  .btn-admin {
+                      /* Add your button styles here */
+                      /* Example styles */
+                      padding: 30px 40px;
+                      background-color: #007bff;
+                      color: #fff;
+                      border: none;
+                      border-radius: 5px;
+                      cursor: pointer;
+                  }

@@ -1,3 +1,14 @@
-insert into food_category(name) values ('DRINK');
-insert into food_category(name) values ('SNACKS');
-insert into food_category(name) values ('MAIN_COURSE');
+--insert into food_category(name) values ('DRINK');
+--insert into food_category(name) values ('SNACKS');
+--insert into food_category(name) values ('MAIN_COURSE');
+--
+--insert into food_category(name) values ('DRINK');
+--insert into food_category(name) values ('SNACKS');
+--insert into food_category(name) values ('MAIN_COURSE');
+--
+--insert into food(name, description, price, food_category_id) values('Lemon soda', 'Lemon soda', 40, 1);
+--insert into food(name, description, price, food_category_id) values('Kanda poha', 'kanda poha', 60, 2);
+--insert into food(name, description, price, food_category_id) values('Biryani', 'Biryani', 100, 3);
+--insert into food(name, description, price, food_category_id) values('Coke', 'Coke', 50, 1);
+--INSERT INTO food(name, description, price, food_category_id) VALUES ('French Fries', 'Crispy french fries', 50, 2);
+--INSERT INTO food(name, description, price, food_category_id) VALUES ('Pizza', 'Margherita pizza', 120, 3);

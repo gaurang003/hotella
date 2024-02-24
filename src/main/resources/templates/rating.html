@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+				initial-scale=1.0">
+    <title>Hotella</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS (for stars) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <script type="text/javascript" src="js/rating.js"></script>
+
+</head>
+<body>
+<!-- for header part -->
+<div th:replace="~{fragments/header :: header}"></div>
+<div class="main-container">
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+<div class="main">
+    <div class="searchbar2">
+        <input type="text" name="" id="" placeholder="Search">
+        <div class="searchbtn">
+            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                 class="icn srchicn" alt="search-button">
+        </div>
+    </div>
+    <div class="report-container">
+<div class="container">
+    <h1>Rate This Hotel</h1>
+    <div class="row">
+        <div class="col">
+            <form th:action="@{/submitRating}" method="post">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" id="name" name="name"  placeholder="Enter Your Name" required><br><br>
+                </div>
+                <div class="mb">
+                    <label class="form-label">Your Rating</label>
+                    <!-- Star Rating -->
+                    <div class="rating">
+                        <input type="radio" id="star1" name="rating" value="1"/>
+                        <label for="star1" title="1 star"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star2" name="rating" value="2"/>
+                        <label for="star2" title="2 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star3" name="rating" value="3"/>
+                        <label for="star3" title="3 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star4" name="rating" value="4"/>
+                        <label for="star4" title="4 stars"><i class="fas fa-star"></i></label>
+                        <input type="radio" id="star5" name="rating" value="5"/>
+                        <label for="star5" title="5 stars"><i class="fas fa-star"></i></label>
+                    </div>
+                    <!-- End Star Rating -->
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Rating</button>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6 recent-ratings">
+            <h2>Recent Ratings</h2>
+            <div th:each="rating : ${ratings}">
+                <p th:text="${rating.name} + ' rated ' + ${rating.rating} + ' stars'"></p>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+</div>
+</body>
+</html>

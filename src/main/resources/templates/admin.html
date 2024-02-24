@@ -39,10 +39,14 @@
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#canteen">Canteen</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#bookings">Bookings</a>
+                        </li>
                     </ul>
                     <div class="tab-content mt-3">
                         <!-- Room Tab -->
                         <div id="room" class="tab-pane fade show active">
+
                             <table class="table">
                                 <thead>
                                 <tr>
@@ -54,16 +58,17 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr th:each="food: ${foods}">
-<!--                                    <td th:text="${room.type}">Standard</td>-->
-<!--                                    <td th:text="${room.guests}">2</td>-->
-<!--                                    <td th:text="${room.checkIn}">2024-02-21</td>-->
-<!--                                    <td th:text="${room.checkOut}">2024-02-28</td>-->
-<!--                                    <td th:text="${room.price}">$100</td>-->
-<!--                                    <td> <button> add to cart</button></td>-->
+                                <tr th:each="room: ${room}">
+                                    <td th:text="${room.roomtype}">Standard</td>
+                                    <td th:text="${room.guests}">2</td>
+                                    <td th:text="${room.checkIn}">2024-02-21</td>
+                                    <td th:text="${room.checkOut}">2024-02-28</td>
+                                    <td th:text="${room.price}">₹1000</td>
+                                  <td> <button> Add to cart</button></td>
                                 </tr>
                                 </tbody>
                             </table>
+                            <button class="btn btn-admin">Add</button> <button type="submit" class="btn-admin" >Submit</button>
                         </div>
                         <!-- Canteen Tab -->
                         <div id="canteen" class="tab-pane fade">
@@ -82,10 +87,36 @@
                                     <td th:text="${food.description}"></td>
                                     <td th:text="${food.foodCategory.name}"></td>
                                     <td th:text="${food.price}"></td>
-                                    <td> <button> Edit</button></td>
+                                    <td> <button class="edit"> Edit</button></td>
                                 </tr>
                                 </tbody>
                             </table>
+                            <button class="btn btn-admin">Add</button>  <button type="submit" class="btn-admin" >Submit</button>
+                        </div>
+                        <!-- Booking Tab -->
+                        <div id="booking" class="tab-pane fade">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th>Guest Name</th>
+                                    <th>Room</th>
+                                    <th>CheckIn</th>
+                                    <th>CheckOut</th>
+                                    <th>Price</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="booking: ${bookings}">
+                                    <td th:text="${booking.name}"></td>
+                                    <td th:text="${booking.room.roomtype}"></td>
+                                    <td th:text="${booking.checkIn}"></td>
+                                    <td th:text="${booking.checkIn}"></td>
+                                    <td th:text="${booking.price}"></td>
+                                    <td> <button class="edit"> Edit</button></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <button class="btn btn-admin">Add</button>  <button type="submit" class="btn-admin" >Submit</button>
                         </div>
                     </div>
                 </div>

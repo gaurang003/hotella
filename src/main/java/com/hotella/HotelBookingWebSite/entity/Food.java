@@ -22,6 +22,6 @@ public class Food {
 
     Double price;
 
-    @OneToOne
+    @ManyToOne
     FoodCategory foodCategory;
 }
