@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="css/main.css">
     <!-- Bootstrap JS and jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
 </head>
 
 <body>
@@ -35,90 +39,95 @@
                     <div class="tab-content mt-3" style="display: flex; flex-direction: column;">
                         <div style="align-self: end;">
                             <!-- Button trigger add food modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodModalLong">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#foodModalLong">
                                 Add food in canteen
                             </button>
 
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodCategoryModalLong">
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#foodCategoryModalLong">
                                 Add food Category
                             </button>
                         </div>
 
-                        <div th:replace="~{component/admin-canteen-tab-component :: admin-canteen-tab-component}">
+                        <div th:replace="~{component/admin-canteen-tab-component :: admin-canteen-tab-component}"></div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 
 <!-- add food Modal -->
-<div class="modal fade" id="foodModalLong" tabindex="-1" role="dialog" aria-labelledby="foodModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="foodModalLongTitle">Add food</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+<div class="modal fade" id="foodModalLong" tabindex="-1" aria-labelledby="foodModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" >
+        <!--                add food form-->
+        <form action="/admin-canteen/food" method="post"  modelAttribute="food">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="foodModalLongTitle">Add food</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Food Name:</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter Food Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Food Category:</label>
+                        <select class="form-select" size="3" aria-label="size 3 select example" id="category">
+                            <option disabled>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="price">Price:</label>
+                        <input type="text" class="form-control" id="price" placeholder="Enter Price">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
-            <div class="modal-body">
-                <!--                add food form-->
-                <form>
-                    <div class="form-group">
-                        <label for="formGroupFoodInput">Food Name:</label>
-                        <input type="text" class="form-control" id="foodGroupFoodInput" placeholder="Enter Food Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="foodFormControlTextarea1">Description:</label>
-                        <textarea class="form-control" id="foodFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Food Category:</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput4" placeholder="Enter New Food Category">
-                    </div>
-                    <div class="form-group">
-                        <label for="formGroupFoodInput">Price:</label>
-                        <input type="text" class="form-control" id="formGroupFoodInput" placeholder="Enter Price">
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 
 <!-- add food category Modal -->
-<div class="modal fade" id="foodCategoryModalLong" tabindex="-1" role="dialog" aria-labelledby="foodCategoryModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="foodCategoryModalLongTitle"> Add food category</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <!--                food category form-->
-                <form>
+<div class="modal fade" id="foodCategoryModalLong" tabindex="-1" aria-labelledby="foodCategoryModalLongTitle" aria-hidden="true">
+    <!--                food category form-->
+    <form action="/admin-foodcategory/add" method="post"  modelAttribute="foodCategory">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="foodCategoryModalLongTitle"> Add food category</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
                     <div class="form-group">
-                        <label for="formGroupExampleInput">Food Category:</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput3" placeholder="Enter New Food Category">
+                        <label for="foodCategory">Food Category:</label>
+                        <input type="text" class="form-control" id="foodCategory" placeholder="Enter New Food Category">
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </div>
-
 
 </body>
 
