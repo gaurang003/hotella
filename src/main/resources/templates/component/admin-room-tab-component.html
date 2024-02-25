@@ -3,19 +3,19 @@
         <thead>
         <tr>
             <th>Room Type</th>
-            <th>No. of Guests</th>
-            <th>Check-In</th>
-            <th>Check-Out</th>
+            <th>Default Check-In</th>
+            <th>Default Check-Out</th>
+            <th>Photo</th>
             <th>Price</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="room: ${room}">
-            <td th:text="${room.roomtype}">Standard</td>
-            <td th:text="${room.guests}">2</td>
-            <td th:text="${room.checkIn}">2024-02-21</td>
-            <td th:text="${room.checkOut}">2024-02-28</td>
-            <td th:text="${room.price}">₹1000</td>
+            <td th:text="${room.roomtype}"></td>
+            <td th:text="${room.checkIn}"></td>
+            <td th:text="${room.checkOut}"></td>
+            <td th:text="${room.photo}"></td>
+            <td th:text="${room.price}"></td>
             <td> <button> Add to cart</button></td>
         </tr>
         </tbody>

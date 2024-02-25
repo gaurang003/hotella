@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,
+				initial-scale=1.0">
+    <title>Hotella</title>
+    <link rel="stylesheet" href="css/main.css">
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+<!-- for header part -->
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="main-container">
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+    <div class="main">
+
+        <div class="searchbar2">
+            <input type="text" name="" id="" placeholder="Search">
+            <div class="searchbtn">
+                <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png"
+                     class="icn srchicn" alt="search-button">
+            </div>
+        </div>
+        <div class="report-container">
+            <div class="container">
+                <div class="container">
+                    <div class="tab-content mt-3" style="display: flex; flex-direction: column;">
+                        <!-- Room Tab -->
+                        <div id="room" class="tab-pane fade show active">
+                            <!-- Button trigger add food modal -->
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#roomModalLong" style="align-self: end;">
+                                Add room type
+                            </button>
+
+                            <div th:replace="~{component/admin-room-tab-component :: admin-room-tab-component}"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- add room Modal -->
+<div class="modal fade" id="roomModalLong" tabindex="-1" role="dialog" aria-labelledby="roomModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <form action="/room/type/add" method="post"  modelAttribute="roomType">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="roomModalLongTitle">Add room type</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--                room form-->
+                    <div class="form-group">
+                        <label for="type">Room Type:</label>
+                        <input type="text" class="form-control" id="type" placeholder="Enter New Room Type">
+                    </div>
+                    <div class="form-group">
+                        <label for="description">Description:</label>
+                        <textarea class="form-control" id="description" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Photo:</label>
+                        <input type="file" class="form-control-file" id="photo">
+                    </div>
+                    <div class="form-group">
+                        <label for="dailyRent">Daily Rent:</label>
+                        <input type="number" class="form-control" id="dailyRent" placeholder="Enter Price">
+                    </div>
+                    <div class="form-group">
+                        <label for="roomCount">No of available rooms:</label>
+                        <input type="number" class="form-control" id="roomCount" placeholder="Enter number of available rooms.">
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>

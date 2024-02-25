@@ -32,54 +32,25 @@
         <div class="report-container">
             <div class="container">
                 <div class="container">
-                    <ul class="nav nav-pills nav-fill">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="tab" href="#room">Room</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#canteen">Canteen</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#bookings">Bookings</a>
-                        </li>
-                    </ul>
                     <div class="tab-content mt-3" style="display: flex; flex-direction: column;">
-                        <!-- Room Tab -->
-                        <div id="room" class="tab-pane fade show active">
+                        <div style="align-self: end;">
                             <!-- Button trigger add food modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#roomModalLong" style="align-self: end;">
-                                Add room type
-                            </button>
-
-                            <div th:replace="~{component/admin-room-tab-component :: admin-room-tab-component}"></div>
-                        </div>
-                        <!-- Canteen Tab -->
-                        <div id="canteen" class="tab-pane fade">
-                            <!-- Button trigger add food modal -->
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodModalLong" style="align-self: end;">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodModalLong">
                                 Add food in canteen
                             </button>
 
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodCategoryModalLong" style="align-self: end;">
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#foodCategoryModalLong">
                                 Add food Category
                             </button>
-
-                            <div th:replace="~{component/admin-canteen-tab-component :: admin-canteen-tab-component}"></div>
-
                         </div>
-                        <!-- Booking Tab -->
-                        <div id="booking" class="tab-pane fade">
-                            <div th:replace="~{component/admin-booking-tab-component :: admin-booking-tab-component}"></div>
-                        </div>
+
+                        <div th:replace="~{component/admin-canteen-tab-component :: admin-canteen-tab-component}">
                     </div>
                 </div>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
+
 </div>
 
 <!-- add food Modal -->
@@ -93,7 +64,7 @@
                 </button>
             </div>
             <div class="modal-body">
-<!--                add food form-->
+                <!--                add food form-->
                 <form>
                     <div class="form-group">
                         <label for="formGroupFoodInput">Food Name:</label>
@@ -121,50 +92,6 @@
     </div>
 </div>
 
-<!-- add room Modal -->
-<div class="modal fade" id="roomModalLong" tabindex="-1" role="dialog" aria-labelledby="roomModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <form action="/room/type/add" method="post"  modelAttribute="roomType">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="roomModalLongTitle">Add room type</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <!--                room form-->
-                    <div class="form-group">
-                        <label for="type">Room Type:</label>
-                        <input type="text" class="form-control" id="type" placeholder="Enter New Room Type">
-                    </div>
-                    <div class="form-group">
-                        <label for="description">Description:</label>
-                        <textarea class="form-control" id="description" rows="3"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="photo">Photo:</label>
-                        <input type="file" class="form-control-file" id="photo">
-                    </div>
-                    <div class="form-group">
-                        <label for="dailyRent">Daily Rent:</label>
-                        <input type="number" class="form-control" id="dailyRent" placeholder="Enter Price">
-                    </div>
-                    <div class="form-group">
-                        <label for="roomCount">No of available rooms:</label>
-                        <input type="number" class="form-control" id="roomCount" placeholder="Enter number of available rooms.">
-                    </div>
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
-
 <!-- add food category Modal -->
 <div class="modal fade" id="foodCategoryModalLong" tabindex="-1" role="dialog" aria-labelledby="foodCategoryModalLongTitle" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -176,7 +103,7 @@
                 </button>
             </div>
             <div class="modal-body">
-<!--                food category form-->
+                <!--                food category form-->
                 <form>
                     <div class="form-group">
                         <label for="formGroupExampleInput">Food Category:</label>
