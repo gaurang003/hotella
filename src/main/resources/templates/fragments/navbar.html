@@ -13,7 +13,6 @@
                 <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/room-booking') ? 'active-nav':''}" class="nav-option">
                     <img src="https://cdn-icons-png.flaticon.com/128/7481/7481036.png" class="nav-img"
                         alt="articles">
-                  <!--  <h3><a href="room_booking.html" style="text-decoration:none">Room</a></h3>  -->
                     <h3><a href="room-booking" style="text-decoration:none">Room</a></h3>
                 </div>
 
@@ -35,26 +34,26 @@
                     <h3><a href="profile" style="text-decoration:none">Profile</a></h3>
                 </div>
 
-                <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/rating') ? 'active-nav':''}" class="nav-option ">
+      <!--          <div th:if="${!isAdmin}" th:classappend="${servletPath.startsWith('/rating') ? 'active-nav':''}" class="nav-option ">
                     <img src="https://cdn-icons-png.flaticon.com/128/9732/9732828.png" class="nav-img"
                          alt="report">
                     <h3><a href="rating" style="text-decoration:none">Rating</a></h3>
                 </div>
-
+       -->
                 <div th:if="${isAdmin}" th:classappend="${servletPath.startsWith('/admin-bookings') ? 'active-nav':''}" class="nav-option">
-                    <img src="https://cdn-icons-png.flaticon.com/128/9977/9977388.png" class="nav-img"
+                    <img src="https://cdn-icons-png.flaticon.com/128/2921/2921222.png" class="nav-img"
                          alt="admin">
                     <h3><a href="admin-bookings" style="text-decoration:none">Bookings</a></h3>
                 </div>
 
                 <div th:if="${isAdmin}" th:classappend="${servletPath.startsWith('/admin-room') ? 'active-nav':''}" class="nav-option">
-                    <img src="https://cdn-icons-png.flaticon.com/128/9977/9977388.png" class="nav-img"
+                    <img src="https://cdn-icons-png.flaticon.com/128/7481/7481036.png" class="nav-img"
                          alt="admin">
                     <h3><a href="admin-room" style="text-decoration:none">Room config</a></h3>
                 </div>
 
                 <div th:if="${isAdmin}" th:classappend="${servletPath.startsWith('/admin-canteen') ? 'active-nav':''}" class="nav-option">
-                    <img src="https://cdn-icons-png.flaticon.com/128/9977/9977388.png" class="nav-img"
+                    <img src="https://cdn-icons-png.flaticon.com/128/737/737967.png" class="nav-img"
                          alt="admin">
                     <h3><a href="admin-canteen" style="text-decoration:none">Canteen config</a></h3>
                 </div>

@@ -1,8 +1,9 @@
-<admin-room-tab-component>
+<admin-room-tab-component xmlns:th="http://www.w3.org/1999/xhtml">
     <table class="table">
         <thead>
         <tr>
             <th>Room Type</th>
+            <th>No of  Rooms</th>
             <th>Default Check-In</th>
             <th>Default Check-Out</th>
             <th>Photo</th>
@@ -12,6 +13,7 @@
         <tbody>
         <tr th:each="room: ${room}">
             <td th:text="${room.roomtype}"></td>
+            <td th:text="${room.noOfRooms}"></td>
             <td th:text="${room.checkIn}"></td>
             <td th:text="${room.checkOut}"></td>
             <td th:text="${room.photo}"></td>
