@@ -1,6 +1,7 @@
 package com.hotella.HotelBookingWebSite.service;
 
 import com.hotella.HotelBookingWebSite.entity.Room;
+import com.hotella.HotelBookingWebSite.entity.RoomType;
 import com.hotella.HotelBookingWebSite.repository.RoomRepository;
 import com.hotella.HotelBookingWebSite.repository.RoomTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,14 @@ public class RoomService {
 
     public Room saveRoom(Room room) {
         return roomRepository.save(room);
+    }
+
+    public RoomType addRoomType(RoomType roomType){
+        return roomTypeRepository.save(roomType);
+    }
+
+    public List<RoomType> getAllAvailableRoomTypes(){
+        return roomTypeRepository.findAll();
     }
 
 

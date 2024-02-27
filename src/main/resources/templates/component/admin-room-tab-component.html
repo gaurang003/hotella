@@ -3,22 +3,22 @@
         <thead>
         <tr>
             <th>Room Type</th>
-            <th>No of  Rooms</th>
-            <th>Default Check-In</th>
-            <th>Default Check-Out</th>
+            <th>Description</th>
             <th>Photo</th>
-            <th>Price</th>
+            <th>No of  Rooms</th>
+            <th>Max guest count</th>
+            <th>Daily rent</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="room: ${room}">
-            <td th:text="${room.roomtype}"></td>
-            <td th:text="${room.noOfRooms}"></td>
-            <td th:text="${room.checkIn}"></td>
-            <td th:text="${room.checkOut}"></td>
+        <tr th:each="room: ${roomTypes}">
+            <td th:text="${room.name}"></td>
+            <td th:text="${room.description}"></td>
             <td th:text="${room.photo}"></td>
-            <td th:text="${room.price}"></td>
-            <td> <button> Add to cart</button></td>
+            <td th:text="${room.roomCount}"></td>
+            <td th:text="${room.maxGuestCount}"></td>
+            <td th:text="${room.dailyRent}"></td>
+            <td> <button> Edit </button></td>
         </tr>
         </tbody>
     </table>

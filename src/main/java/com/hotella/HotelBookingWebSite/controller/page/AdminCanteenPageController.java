@@ -19,9 +19,10 @@ public class AdminCanteenPageController {
     FoodService foodService;
 
     @GetMapping
-    public String getAdminRoomPage(Model model) {
+    public String getAdminCanteenPage(Model model) {
 
         model.addAttribute("foodCategories", foodService.getAllFoodCategory());
+        model.addAttribute("foods", foodService.getAllFood());
         return PAGE;
     }
 

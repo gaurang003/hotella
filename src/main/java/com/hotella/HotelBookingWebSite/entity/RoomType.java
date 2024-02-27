@@ -18,7 +18,7 @@ public class RoomType {
     private String name;
     private String description;
     private String photo;
-    private Integer noOfRooms;
-    private double hourlyRent;
+    private Integer roomCount;
+    private Integer maxGuestCount;
     private double dailyRent;
 }
