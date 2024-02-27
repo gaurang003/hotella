@@ -17,6 +17,8 @@ public class Booking {
         @ManyToOne
         private Room room;
 
+        private RoomType roomType;
+        private User  guests;
         private LocalDate checkInDate;
         private LocalDate checkOutDate;
         private double totalPrice;
