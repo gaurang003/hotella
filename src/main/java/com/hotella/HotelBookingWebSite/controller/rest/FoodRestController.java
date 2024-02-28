@@ -6,6 +6,7 @@ import com.hotella.HotelBookingWebSite.entity.FoodCategory;
 import com.hotella.HotelBookingWebSite.service.FoodService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
