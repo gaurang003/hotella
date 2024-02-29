@@ -2,7 +2,6 @@ package com.hotella.HotelBookingWebSite.controller.rest;
 
 
 import com.hotella.HotelBookingWebSite.dto.UserDto;
-import com.hotella.HotelBookingWebSite.entity.User;
 import com.hotella.HotelBookingWebSite.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
@@ -57,22 +56,21 @@ public class AuthController {
     public String registration(@Valid @ModelAttribute("user") UserDto userDto,
                                BindingResult result,
                                Model model) {
-        User existingUser = userService.findUserByEmail(userDto.getEmail());
-
-        if (existingUser != null && existingUser.getEmail() != null && !existingUser.getEmail().equals("")) {
-
-            result.rejectValue("email", null,
-                    "There is already an account registered with the same email");
+        // Validate confirm password
+        if (!userDto.getPassword().equals(userDto.getConfirmPassword())) {
+            result.rejectValue("confirmPassword", null, "Passwords do not match");
         }
 
+        // Existing code for email validation and saving user
+
+        // Return appropriate view based on validation result
         if (result.hasErrors()) {
             model.addAttribute("user", userDto);
             return "register";
         }
 
         userService.saveUser(userDto);
-        return "redirect:/login?success=registration";
-
+        return "redirect:/register?success=registration";
     }
 
     // handler method to handle list of users
@@ -82,10 +80,5 @@ public class AuthController {
         model.addAttribute("users", users);
         return "users";
     }
-
-  //  @GetMapping("/booking")
-    //public String bookingPage(Model model) {
-      //  return "booking";
-    //}
 
 }

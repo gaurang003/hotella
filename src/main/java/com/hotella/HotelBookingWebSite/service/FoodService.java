@@ -16,10 +16,10 @@ import java.util.Optional;
 public class FoodService {
 
     @Autowired
-    FoodRepository foodRepository;
+    private FoodRepository foodRepository;
 
     @Autowired
-    FoodCategoryRepository foodCategoryRepository;
+    private FoodCategoryRepository foodCategoryRepository;
 
     public Food saveFood(FoodDTO foodDTO){
 
@@ -35,7 +35,10 @@ public class FoodService {
         } else {
             throw new InvalidFoodCategory();
         }
+    }
 
+    public FoodCategory saveFoodCategory(FoodCategory foodCategory) {
+        return foodCategoryRepository.save(foodCategory);
     }
 
     public List<FoodCategory> getAllFoodCategory() {
@@ -43,8 +46,6 @@ public class FoodService {
     }
 
     public List<Food> getAllFood() {
-
-        List<Food> foods = foodRepository.findAll();
-        return foods;
+        return foodRepository.findAll();
     }
 }

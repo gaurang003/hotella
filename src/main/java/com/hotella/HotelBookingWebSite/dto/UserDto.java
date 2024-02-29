@@ -3,6 +3,7 @@ package com.hotella.HotelBookingWebSite.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +21,10 @@ public class UserDto {
     private String lastName;
     @NotEmpty(message = "Email should not be empty")
     @Email
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String email;
     @NotEmpty(message = "Password should not be empty")
     private String password;
+    @NotEmpty(message = "Confirm Password should not be empty")
+    private String confirmPassword;
 }

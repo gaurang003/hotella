@@ -33,4 +33,9 @@ public class FoodRestController {
         return foodService.getAllFoodCategory();
     }
 
+    @PostMapping("admin/category")
+    public FoodCategory saveFoodCategory(@Valid  @RequestBody FoodCategory foodCategory) {
+        return foodService.saveFoodCategory(foodCategory);
+    }
+
 }

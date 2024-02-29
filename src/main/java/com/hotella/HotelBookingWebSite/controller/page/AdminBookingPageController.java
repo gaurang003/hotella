@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("admin-bookings")
-public class AdminBookingsPageController {
+public class AdminBookingPageController {
 
-    public static final String PAGE = "admin-bookings";
+    public static final String PAGE = "admin-booking";
 
     @GetMapping
     public String getAdminRoomPage(Model model) {

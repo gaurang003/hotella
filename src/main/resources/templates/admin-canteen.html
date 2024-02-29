@@ -103,7 +103,7 @@
 <!-- add food category Modal -->
 <div class="modal fade" id="foodCategoryModalLong" tabindex="-1" aria-labelledby="foodCategoryModalLongTitle" aria-hidden="true">
     <!--                food category form-->
-    <form>
+    <form id="foodCategoryForm">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -114,13 +114,13 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="foodCategory">Food Category:</label>
-                        <input type="text" class="form-control" id="foodCategory" placeholder="Enter New Food Category" required>
+                        <label for="name">Food Category:</label>
+                        <input type="text" class="form-control" id="foodCategory" name="name" placeholder="Enter New Food Category">
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button onclick="addFood(this.form)" class="btn btn-primary">Save changes</button>
+                    <button onclick="addFoodCategory(event, form)" class="btn btn-primary">Save changes</button>
                 </div>
             </div>
         </div>
