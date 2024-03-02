@@ -11,15 +11,6 @@ import lombok.Setter;
 @Setter
 @Getter
 public class Room {
-     /*   @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long id;
-
-        private String type; // Normal, Deluxe, Luxury
-
-        private double price;
-
-        // Getters and setters  */
      @Id
      @GeneratedValue(strategy = GenerationType.IDENTITY)
      private Long id;

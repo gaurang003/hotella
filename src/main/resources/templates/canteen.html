@@ -31,7 +31,12 @@
             <div class="report-container">
              <div class="container">
                     <h1>Canteen Menu</h1>
-
+                 <!-- Checkout Option with icon -->
+                 <div class="checkout-option">
+                     <button onclick="location.href='/checkout-page'">
+                         <img src="https://cdn-icons-png.flaticon.com/128/6445/6445918.png" alt="Checkout Icon" class="checkout-icon">
+                     </button>
+                 </div>
                     <table class="table">
                         <thead>
                         <tr>
@@ -39,6 +44,7 @@
                             <th scope="col">Description</th>
                             <th scope="col">Category</th>
                             <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -47,6 +53,7 @@
                             <td th:text="${food.description}"></td>
                             <td th:text="${food.foodCategory.name}"></td>
                             <td th:text="${food.price}"></td>
+                            <td><input type="number" class="quantity-input" value="1" min="1"></td>
                             <td> <button> Add to Cart</button></td>
                         </tr>
                         </tbody>

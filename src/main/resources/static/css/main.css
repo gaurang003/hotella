@@ -925,3 +925,27 @@ profile-card {
                       cursor: pointer;
                   }*/
 
+
+
+/* CSS for checkout option*/
+  .checkout-option {
+            text-align: right;
+        }
+
+        .checkout-option button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .checkout-icon {
+            width: 30px;
+            margin-right: 15px;
+        }
+         }
+
+                .quantity-input {
+                    width: 10px; /* Adjust width */
+                              font-size: 8px; /* Adjust font size */
+                              padding: -11px; /* Adjust padding */
+                }

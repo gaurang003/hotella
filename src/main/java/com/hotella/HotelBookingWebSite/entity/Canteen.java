@@ -13,8 +13,4 @@ public class Canteen {
 
     private String name;
     private String description;
-
-    // Add other attributes as needed
-
-    // Getters and Setters
 }
