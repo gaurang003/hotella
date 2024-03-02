@@ -19,6 +19,7 @@ public class Room {
         private String description;
         private String roomType;
         private double costPerDay;
+        private Boolean isDeleted;
 
 }
 

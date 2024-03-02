@@ -20,6 +20,7 @@ public class Booking {
         private LocalDate checkInDate;
         private LocalDate checkOutDate;
         private double totalPrice;
+        private String status;
 
         // Getters and setters
     }

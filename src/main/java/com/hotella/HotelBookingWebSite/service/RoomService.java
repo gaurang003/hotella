@@ -38,5 +38,14 @@ public class RoomService {
         return roomTypeRepository.findAll();
     }
 
+    public Room deleteRoom(Long roomId) {
+        Optional<Room> roomOptional = roomRepository.findById(roomId);
 
+        if (roomOptional.isPresent()) {
+            roomOptional.get().setIsDeleted(true);
+            return roomRepository.save(roomOptional.get());
+        } else {
+            throw new RuntimeException("Room not found");
+        }
+    }
 }
