@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
+import java.util.List;
 
 @Entity
 @Getter
@@ -31,6 +32,9 @@ public class RoomType {
     @Max(30)
     private Integer maxGuestCount;
     private double dailyRent;
+
+    @ManyToMany(mappedBy="roomType")
+    private List<Booking> bookings;
 
     private transient RoomTypeDTO roomTypeDTO;
     public RoomTypeDTO getDTO(){

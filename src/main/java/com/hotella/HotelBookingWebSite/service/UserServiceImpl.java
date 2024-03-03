@@ -59,6 +59,15 @@ public class UserServiceImpl implements UserService  {
                 .collect(Collectors.toList());
     }
 
+    @Override
+    public User findUserById(Long id) {
+        Optional<User> userOptional = userRepository.findById(id);
+        if (userOptional.isPresent())
+            return userOptional.get();
+
+        throw new RuntimeException("User not found");
+    }
+
     private UserDto mapToUserDto(User user){
         UserDto userDto = new UserDto();
         String[] str = user.getName().split(" ");

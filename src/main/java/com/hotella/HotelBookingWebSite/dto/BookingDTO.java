@@ -9,10 +9,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BookingSummary {
+public class BookingDTO {
 
-    String roomType;
     Integer guests;
     String checkIn;
     String checkOut;
+    Long roomId;
+    int roomCount;
 }

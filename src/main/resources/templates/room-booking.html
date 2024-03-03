@@ -55,74 +55,88 @@
                 <div class="card">
                     <div class="card-body">
                         <h2 class="card-title mb-4">Room Booking</h2>
-                        <form action="/room-booking-summary" method="post" id="bookingForm">
-                            <div class="form-group">
-                                <label>Select Room Type:</label>
-                                <div class="room-container">
-                                    <div class="col-md-4">
-                                        <input type="radio" id="normalRoom" name="roomType" value="normal" data-price="1000" required>
-                                        <label for="normalRoom">
-                                            <h3>Normal Room</h3><img src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/77329713704049.5627727f54be5.jpg" alt="Normal Room" width="150">
-                                            <p>Price: ₹1000 per hour</p>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="radio" id="deluxeRoom" name="roomType" value="deluxe" data-price="2000">
-                                        <label for="deluxeRoom">
-                                            <h3>Deluxe Room</h3><img src="https://www.grandlordhotel.com/medias/room/big/78/deluxe02.jpg" alt="Deluxe Room" width="150">
-                                            <p>Price: ₹2000 per hour</p>
-                                        </label>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <input type="radio" id="luxuriousRoom" name="roomType" value="luxurious" data-price="3000">
-                                        <label for="luxuriousRoom">
-                                            <h3>Luxurious Room</h3><img src="https://www.jetsetter.com//uploads/sites/7/2018/04/mcdO57rG-1380x1035.jpeg" alt="Luxurious Room" width="150">
-                                            <p>Price: ₹3000 per hour</p>
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="guests">Number of Guests:</label>
-                                <input type="number" id="guests" name="guests" class="form-control" min="1" placeholder="Scroll up to add guest" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkIn">Check-in Date:</label>
-                                <input type="date" th:attr="min=${minDate}" id="checkIn" name="checkIn" class="form-control" onchange="checkInChanged(event)" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="checkOut">Check-out Date:</label>
-                                <input type="date" th:attr="min=${minDate}" id="checkOut" name="checkOut" class="form-control" required>
-                            </div>
+                        <form action="/room-availability" >
+                            <!--  <div class="form-group">
+                          <label>Select Room Type:</label>
+                              <div class="room-container">
+                                  <div class="col-md-4">
+                                      <input type="radio" id="normalRoom" name="roomType" value="normal"
+                                             data-price="1000" required>
+                                      <label for="normalRoom">
+                                          <h3>Normal Room</h3><img
+                                              src="https://mir-s3-cdn-cf.behance.net/project_modules/1400/77329713704049.5627727f54be5.jpg"
+                                              alt="Normal Room" width="150">
+                                          <p>Price: ₹1000 per hour</p>
+                                      </label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <input type="radio" id="deluxeRoom" name="roomType" value="deluxe"
+                                             data-price="2000">
+                                      <label for="deluxeRoom">
+                                          <h3>Deluxe Room</h3><img
+                                              src="https://www.grandlordhotel.com/medias/room/big/78/deluxe02.jpg"
+                                              alt="Deluxe Room" width="150">
+                                          <p>Price: ₹2000 per hour</p>
+                                      </label>
+                                  </div>
+                                  <div class="col-md-4">
+                                      <input type="radio" id="luxuriousRoom" name="roomType" value="luxurious"
+                                             data-price="3000">
+                                      <label for="luxuriousRoom">
+                                          <h3>Luxurious Room</h3><img
+                                              src="https://www.jetsetter.com//uploads/sites/7/2018/04/mcdO57rG-1380x1035.jpeg"
+                                              alt="Luxurious Room" width="150">
+                                          <p>Price: ₹3000 per hour</p>
+                                      </label>
+                                  </div>
+                              </div>
+                          </div>-->
+                          <div class="form-group col-md-6 offset-md-3">
 
-                            <button type="submit" class="btn btn-primary">Book Now!!</button>
-
-                        </form>
-                        <div class="card-header">
-                            <h2 class="text-center">Room Booking History</h2>
-                        </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                    <tr>
-                                        <th>Room Type</th>
-                                        <th>Number of Guests</th>
-                                        <th>Check-in Date</th>
-                                        <th>Check-out Date</th>
-                                        <th>Price</th>
-                                    </tr>
-                                    </thead>
-                                    <!--       <tbody>
-                                       <tr th:each="booking : ${user.roomBookings}">
-                                             <td th:text="${booking.roomName}"></td>
-                                             <td th:text="${booking.checkInDate}"></td>
-                                             <td th:text="${booking.checkOutDate}"></td>
-                                         </tr>
-                                    </tbody>    -->
+                              <label for="guests">Number of Guests:</label>
+                              <input type="number" id="guests" name="guests" class="form-control" min="1"
+                                     placeholder="Mention no of Member " required>
+                          </div>
+                          <div class="form-group col-md-6 offset-md-3">
+                              <label for="checkIn">Check-in Date:</label>
+                              <input type="date" th:attr="min=${minDate}" id="checkIn" name="checkIn"
+                                     class="form-control" onchange="checkInChanged(event)" required>
+                          </div>
+                          <div class="form-group col-md-6 offset-md-3">
+                              <label for="checkOut">Check-out Date:</label>
+                              <input type="date" th:attr="min=${minDate}" id="checkOut" name="checkOut"
+                                     class="form-control" required>
+                          </div>
+                            <div class="col-md-6 offset-md-3">
+                                <button type="submit" class="btn btn-primary">Check availability</button>
+                            </div>
+                      </form>
+                      <div class="card-header">
+                          <h2 class="text-center">Room Booking History</h2>
+                      </div>
+                      <div class="card-body">
+                          <div class="table-responsive">
+                              <table class="table table-striped">
+                                  <thead>
+                                  <tr>
+                                      <th>Room Type</th>
+                                      <th>Number of Guests</th>
+                                      <th>Check-in Date</th>
+                                      <th>Check-out Date</th>
+                                      <th>Price</th>
+                                  </tr>
+                                  </thead>
+                                  <!--       <tbody>
+                                     <tr th:each="booking : ${user.roomBookings}">
+                                           <td th:text="${booking.roomName}"></td>
+                                           <td th:text="${booking.checkInDate}"></td>
+                                           <td th:text="${booking.checkOutDate}"></td>
+                                       </tr>
+                                  </tbody>    -->
                                 </table>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

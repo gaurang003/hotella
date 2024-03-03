@@ -34,9 +34,9 @@
                 <div class="container">
                     <div class="card">
                         <div class="card-body">
-                            <h2 class="card-title mb-4">Room Booking</h2>
+                            <h2 class="card-title mb-4">Room Booking </h2>
                             <form action="/payment-receipt" method="get" id="bookingForm">
-                                <table class="table-border">
+                              <!--  <table class="table-border">
                                     <tr>
                                         <th> Selected Room type:</th>
                                         <th th:text="${roomType}"></th>
@@ -55,7 +55,37 @@
                                     </tr>
                                 </table>
                                 <button type="submit" class="btn btn-primary">Pay Now!!</button>
-
+-->
+                                <div class="card-header">
+                                    <h2 class="text-center">Room Booking</h2>
+                                </div>
+                                <div class="card-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Room Type</th>
+                                                <th>Number of Guests</th>
+                                                <th>Check-in Date</th>
+                                                <th>Check-out Date</th>
+                                                <th>Room count</th>
+                                                <th>Price per room</th>
+                                            </tr>
+                                            </thead>
+                                                 <tbody>
+                                               <tr>
+                                                   <td th:text="${room.name}"></td>
+                                                     <td th:text="${guests}"></td>
+                                                     <td th:text="${checkIn}"></td>
+                                                     <td th:text="${checkOut}"></td>
+                                                     <td th:text="${roomCount}"></td>
+                                                     <td th:text="${room.dailyRent}"></td>
+                                                 </tr>
+                                            </tbody>
+                                            <button> Proceed to payment</button>
+                                        </table>
+                                    </div>
+                                </div>
                             </form>
                     </div>
                 </div>
