@@ -14,7 +14,9 @@
         <tr th:each="room: ${roomTypes}">
             <td th:text="${room.name}"></td>
             <td th:text="${room.description}"></td>
-            <td th:text="${room.photo}"></td>
+            <td th:text="${room.photo}">
+                <img th:attr="src=|data:image/jpeg;base64,'${room.photo}')|">
+            </td>
             <td th:text="${room.roomCount}"></td>
             <td th:text="${room.maxGuestCount}"></td>
             <td th:text="${room.dailyRent}"></td>

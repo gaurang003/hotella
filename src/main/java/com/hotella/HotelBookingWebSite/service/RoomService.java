@@ -1,5 +1,6 @@
 package com.hotella.HotelBookingWebSite.service;
 
+import com.hotella.HotelBookingWebSite.dto.RoomTypeDTO;
 import com.hotella.HotelBookingWebSite.entity.Room;
 import com.hotella.HotelBookingWebSite.entity.RoomType;
 import com.hotella.HotelBookingWebSite.repository.RoomRepository;
@@ -7,6 +8,9 @@ import com.hotella.HotelBookingWebSite.repository.RoomTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,8 +38,16 @@ public class RoomService {
         return roomTypeRepository.save(roomType);
     }
 
-    public List<RoomType> getAllAvailableRoomTypes(){
-        return roomTypeRepository.findAll();
+    public List<RoomTypeDTO> getAllAvailableRoomTypes(){
+        
+        List<RoomType> roomTypes = roomTypeRepository.findAll();
+        List<RoomTypeDTO> roomTypeDTOS = new ArrayList<RoomTypeDTO>();
+
+        roomTypes.forEach( roomType -> {
+            roomTypeDTOS.add(roomType.getDTO());
+        } );
+
+        return roomTypeDTOS;
     }
 
     public Room deleteRoom(Long roomId) {

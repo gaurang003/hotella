@@ -69,3 +69,15 @@ const addFoodCategory = async (event, form) => {
           console.error('Error:', error);
         });
 }
+
+//const editFood = async(event, name, description, categoryId, price) => {
+const editFood = async(event, food) => {
+
+    event.preventDefault();
+    let foodForm = $("#foodForm")[0];
+    foodForm.elements["name"].value = food.name;
+    foodForm.elements["description"].value = food.description;
+    foodForm.elements["categoryId"].value = categoryId;
+    foodForm.elements["price"].value = food.price;
+    $('#foodModalLong').modal('show');
+}
