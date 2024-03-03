@@ -14,7 +14,8 @@
             <td th:text="${food.description}"></td>
             <td th:text="${food.foodCategory.name}"></td>
             <td th:text="${food.price}"></td>
-            <td> <button class="edit"> Edit</button></td>
+<!--            <td> <button class="edit" th:attr="onclick=|editFood(event, '${food.name}', '${food.description}', '${food.foodCategory.id}', '${food.price}')|" > Edit</button></td>-->
+            <td> <button class="edit" th:attr="onclick=|editFood(event, '${food}')|" > Edit</button></td>
         </tr>
         </tbody>
     </table>
