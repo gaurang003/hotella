@@ -521,6 +521,11 @@
     flex-grow: 1;
 }
 
+.history-card .card-header {
+    background-color: #0174BE;
+    border-bottom: 1px solid #ccc;
+}
+
 .room-container input[type="radio"] {
      /* Hide the actual radio buttons */
 }

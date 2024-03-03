@@ -94,8 +94,35 @@
                                 <label for="checkOut">Check-out Date:</label>
                                 <input type="date" th:attr="min=${minDate}" id="checkOut" name="checkOut" class="form-control" required>
                             </div>
+
                             <button type="submit" class="btn btn-primary">Book Now!!</button>
+
                         </form>
+                        <div class="card-header">
+                            <h2 class="text-center">Room Booking History</h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Room Type</th>
+                                        <th>Number of Guests</th>
+                                        <th>Check-in Date</th>
+                                        <th>Check-out Date</th>
+                                        <th>Price</th>
+                                    </tr>
+                                    </thead>
+                                    <!--       <tbody>
+                                       <tr th:each="booking : ${user.roomBookings}">
+                                             <td th:text="${booking.roomName}"></td>
+                                             <td th:text="${booking.checkInDate}"></td>
+                                             <td th:text="${booking.checkOutDate}"></td>
+                                         </tr>
+                                    </tbody>    -->
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

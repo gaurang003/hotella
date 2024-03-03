@@ -65,5 +65,11 @@ public class PageController {
         return "rating";
     }
 
+    @GetMapping("/payment-receipt")
+    public String getPaymentReceiptPage(Model model) {
+        return "payment-receipt";
+    }
+
+
 
 }
