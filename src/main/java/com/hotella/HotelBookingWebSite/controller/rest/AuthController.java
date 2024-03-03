@@ -73,7 +73,6 @@ public class AuthController {
         return "redirect:/register?success=registration";
     }
 
-
     // handler method to handle list of users
     @GetMapping("/users")
     public String users(Model model) {
