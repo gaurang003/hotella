@@ -4,7 +4,6 @@ import com.hotella.HotelBookingWebSite.dto.RoomTypeDTO;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +21,7 @@ public class RoomType {
     private String name;
     private String description;
     @Lob
+    @Column(length = 20971520)
     private byte[] photo;
 
     @Min(1)
@@ -40,7 +40,7 @@ public class RoomType {
         try {
 
             byte[] encodeBase64 = Base64.getEncoder().encode(this.photo);
-            base64Encoded = new String(encodeBase64, "UTF-8");
+            base64Encoded = new String(this.photo, "UTF-8");
 
         } catch (UnsupportedEncodingException e) {
             throw new RuntimeException(e);
@@ -50,7 +50,7 @@ public class RoomType {
             roomTypeDTO = RoomTypeDTO.builder().id(this.id)
                     .name(this.name)
                     .description(this.description)
-                    .photo(base64Encoded)
+                    .photoString(base64Encoded)
                     .roomCount(this.roomCount)
                     .maxGuestCount(this.maxGuestCount)
                     .dailyRent(this.dailyRent)

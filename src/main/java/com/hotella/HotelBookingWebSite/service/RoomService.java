@@ -8,7 +8,6 @@ import com.hotella.HotelBookingWebSite.repository.RoomTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -34,7 +33,21 @@ public class RoomService {
         return roomRepository.save(room);
     }
 
-    public RoomType addRoomType(RoomType roomType){
+    public RoomType addRoomType(RoomTypeDTO roomTypeDTO){
+
+        RoomType roomType = new RoomType();
+
+        try {
+            byte[] encodeBase64 = Base64.getEncoder().encode(roomTypeDTO.getPhoto().getBytes());
+
+            roomType.setName(roomTypeDTO.getName());
+            roomType.setDescription(roomTypeDTO.getDescription());
+            roomType.setRoomCount(roomTypeDTO.getRoomCount());
+            roomType.setMaxGuestCount(roomTypeDTO.getMaxGuestCount());
+            roomType.setPhoto(encodeBase64);
+        } catch (Exception ex) {
+
+        }
         return roomTypeRepository.save(roomType);
     }
 

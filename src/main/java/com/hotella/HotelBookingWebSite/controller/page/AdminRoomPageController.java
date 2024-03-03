@@ -1,6 +1,6 @@
 package com.hotella.HotelBookingWebSite.controller.page;
 
-import com.hotella.HotelBookingWebSite.entity.RoomType;
+import com.hotella.HotelBookingWebSite.dto.RoomTypeDTO;
 import com.hotella.HotelBookingWebSite.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,7 +30,7 @@ public class AdminRoomPageController {
     }
 
     @PostMapping()
-    public String addRoomType(@ModelAttribute RoomType roomType, Model model) {
+    public String addRoomType(@ModelAttribute RoomTypeDTO roomType, Model model) {
 
         roomService.addRoomType(roomType);
         model.addAttribute("isRoomAdded", true);
