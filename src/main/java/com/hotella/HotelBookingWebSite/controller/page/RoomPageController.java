@@ -52,13 +52,14 @@ public class RoomPageController {
 
         RoomType roomType = roomService.getRoomTypeById(bookingDTO.getRoomId());
         int requiredRooms = (int) Math.ceil((float) bookingDTO.getGuests() /roomType.getMaxGuestCount());
-
+        double totalAmount = requiredRooms * roomType.getDailyRent();
+        roomService.saveBooking(bookingDTO, user);
         model.addAttribute("guests",  bookingDTO.getGuests());
         model.addAttribute("checkIn",  bookingDTO.getCheckIn());
         model.addAttribute("checkOut",  bookingDTO.getCheckOut());
         model.addAttribute("room", roomType);
         model.addAttribute("roomCount",  requiredRooms);
-        model.addAttribute("totalAmount",  requiredRooms * roomType.getDailyRent());
+        model.addAttribute("totalAmount", totalAmount );
         return "room-booking-summary";
     }
 
