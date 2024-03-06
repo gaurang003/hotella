@@ -56,7 +56,7 @@ public class RoomService {
             roomType.setRoomCount(roomTypeDTO.getRoomCount());
             roomType.setMaxGuestCount(roomTypeDTO.getMaxGuestCount());
             roomType.setPhoto(encodeBase64);
-            roomType.setDailyRent(roomType.getDailyRent());
+            roomType.setDailyRent(roomTypeDTO.getDailyRent());
         } catch (Exception ex) {
 
             throw new RuntimeException("Error while adding room type");

@@ -2,6 +2,7 @@
 const addFood = async (event, form) => {
 
     event.preventDefault();
+
     const formData = new FormData(form);
     var bodyArr = {};
     formData.forEach(function(value, key){

@@ -21,10 +21,13 @@ public class UserDto {
     private String lastName;
     @NotEmpty(message = "Email should not be empty")
     @Email
-    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String email;
+
     @NotEmpty(message = "Password should not be empty")
+    @Size(min = 8, message = "Password must be at least 8 characters long")
     private String password;
-    @NotEmpty(message = "Confirm Password should not be empty")
+
+    @NotEmpty(message = "Password should not be empty")
     private String confirmPassword;
+
 }

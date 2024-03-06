@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.security.Principal;
-
 @Controller
 public class PageController {
 
@@ -73,12 +71,5 @@ public class PageController {
     public String getRatingPage(Model model) {
         return "rating";
     }
-
-    @GetMapping("/payment-receipt")
-    public String getPaymentReceiptPage(Model model) {
-        return "payment-receipt";
-    }
-
-
 
 }

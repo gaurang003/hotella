@@ -21,6 +21,6 @@ public class Feedback {
     private Integer id;
     private String name;
     private String comment;
-
+    private Integer rating;
     // getters and setters
 }

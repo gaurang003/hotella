@@ -14,6 +14,7 @@ public class RoomRestController {
     @Autowired
     RoomService roomService;
 
+    // Not in use
     @PostMapping("admin/roomType")
     public RoomType addRooms(@RequestBody RoomTypeDTO roomType){
 

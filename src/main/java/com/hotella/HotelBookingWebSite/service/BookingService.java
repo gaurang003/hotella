@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class BookingService {
@@ -49,5 +50,16 @@ public class BookingService {
             bookingDTOS.add(booking.getDTO());
         });
         return bookingDTOS;
+    }
+
+    public Booking findById(Long bookingId) {
+
+        Optional<Booking> bookingOptional = bookingRepository.findById(bookingId);
+
+        if (bookingOptional.isPresent()) {
+            return bookingOptional.get();
+        } else
+            throw new RuntimeException("Booking id not found.");
+
     }
 }

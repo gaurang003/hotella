@@ -58,3 +58,27 @@ const bookRoom = async (event, guests, checkIn, checkOut, roomId, roomCount) => 
 
     alert(body);
 }
+
+const proceedPayment = async (event, guests, checkIn, checkOut, roomId, roomCount) => {
+
+    event.preventDefault();
+
+    var bodyArr = {};
+    bodyArr["guests"] = guests;
+    bodyArr["checkIn"] = checkIn;
+    bodyArr["checkOut"] = checkOut;
+    bodyArr["roomId"] = roomId;
+    bodyArr["roomCount"] = roomCount;
+
+    var url = '';
+    for (var key in bodyArr) {
+        if (url !='') {
+            url = url + '&';
+        }
+        var value = bodyArr[key];
+        url = url + key + '=' + value;
+    }
+    window.location.replace("proceed-payment?" + url);
+
+    alert(body);
+}

@@ -39,48 +39,52 @@
                     <div class="card">
                         <div class="card-body mx-2">
                             <div class="container">
-                                <p class="my-3 mx-3" style="font-size: 20px;">Thank you for your purchase</p>
+                                <p class="my-3 mx-3" style="font-size: 24px;">Thank you for room booking</p>
                                 <div class="row">
                                     <ul class="list-unstyled">
-                                        <li class="text-black" style="font-size: 14px;">John Doe</li>
-                                        <li class="text-muted mt-1" style="font-size: 12px;"><span class="text-black">Invoice</span> #12345</li>
-                                        <li class="text-black mt-1" style="font-size: 12px;">April 17 2021</li>
+                                        <li class="text-black" style="font-size: 14px;" th:text="${userFullName}"></li>
+                                        <li class="text-black" style="font-size: 14px;" th:text="${emailId}"></li>
+                                        <li class="text-black mt-1" style="font-size: 12px;" th:text="${bookingDate}"></li>
+                                        <li class="text-muted mt-1" style="font-size: 12px;" th:text="${invoiceNumber}"></li>
                                     </ul>
                                     <hr style="margin: 4px;">
-                                    <div class="col-xl-10">
-                                        <p style="font-size: 14px;">Pro Package</p>
+                                    <div class="col-xl-4">
+                                        <h4>Room Type</h4>
+                                        <p style="font-size: 14px;" th:text="${roomTypeName}"></p>
                                     </div>
-                                    <div class="col-xl-2">
-                                        <p class="float-end" style="font-size: 14px;">$199.00</p>
+                                    <div class="col-xl-4">
+                                        <h4>No of guests</h4>
+                                        <p style="font-size: 14px;" th:text="${guestCount}"></p>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <h4>No of rooms</h4>
+                                        <p style="font-size: 14px;" th:text="${roomCount}"></p>
+                                    </div>
+                                    <div class="col-xl-4">
+                                        <h4>Rent per day</h4>
+                                        <p class="float-end" style="font-size: 14px;" th:text="${dailyRent}"></p>
                                     </div>
                                     <hr style="margin: 4px;">
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-10">
-                                        <p style="font-size: 14px;">Consulting</p>
+                                    <div class="col-xl-16">
+                                        <p style="font-size: 14px;">
+                                            <h3>Terms & condition</h3>
+
+                                        </p>
                                     </div>
-                                    <div class="col-xl-2">
-                                        <p class="float-end" style="font-size: 14px;">$100.00</p>
-                                    </div>
-                                    <hr style="margin: 4px;">
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-10">
-                                        <p style="font-size: 14px;">Support</p>
-                                    </div>
-                                    <div class="col-xl-2">
-                                        <p class="float-end" style="font-size: 14px;">$10.00</p>
-                                    </div>
-                                    <hr style="border: 1px solid black; margin: 4px;">
                                 </div>
                                 <div class="row text-black">
                                     <div class="col-xl-12">
-                                        <p class="float-end fw-bold" style="font-size: 14px;">Total: $10.00</p>
+                                        <h6>Total amount</h6>
+                                        <p class="float-end fw-bold" style="font-size: 14px;" th:text="${totalAmount}"></p>
+                                        <h6>paid amount</h6>
+                                        <p class="float-end fw-bold" style="font-size: 14px;" th:text="${totalAmount}"></p>
                                     </div>
                                     <hr style="border: 1px solid black; margin: 4px;">
                                 </div>
                                 <div class="text-center" style="margin-top: 20px;">
-                                    <a><u class="text-info" style="font-size: 12px;">View in browser</u></a>
+                                    <a><u class="text-info" style="font-size: 12px;">Hotella</u></a>
                                     <p style="font-size: 12px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                                 </div>
                             </div>
