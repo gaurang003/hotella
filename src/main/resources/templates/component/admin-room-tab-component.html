@@ -15,7 +15,7 @@
             <td th:text="${room.name}"></td>
             <td th:text="${room.description}"></td>
             <td>
-                <img th:attr="src=|data:image/jpeg;base64,${room.photoString}|" >
+                <img th:attr="src=|data:image/jpeg;base64,${room.photoString}|"  style="width: 250px; height: 150px;">
             </td>
             <td th:text="${room.roomCount}"></td>
             <td th:text="${room.maxGuestCount}"></td>

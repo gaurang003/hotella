@@ -12,4 +12,6 @@ public interface BookingRepository extends JpaRepository<Booking, Long> {
 
     @Query(value = "select * from booking", nativeQuery = true)
     public List<Booking> findAllByCheckInDateBetweenAndCheckOutDateBetween(String checkInDate, String checkOutDate);
+
+    public List<Booking> findAllByUserId(Long userId);
 }

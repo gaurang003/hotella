@@ -1,10 +1,13 @@
 package com.hotella.HotelBookingWebSite.entity;
 
+import com.hotella.HotelBookingWebSite.dto.ProfileBookingDTO;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
 @Entity
@@ -28,11 +31,30 @@ public class Booking {
 
         private LocalDate checkInDate;
         private LocalDate checkOutDate;
+        private int guestCount;
         private double totalPrice;
         private String status;
         private boolean isCancelled;
         private LocalDate bookingDate;
-        private Double paidAmount;
+        private double paidAmount;
         // Getters and setters
+
+
+        public ProfileBookingDTO getDTO(){
+
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+                ProfileBookingDTO profileBookingDTO = ProfileBookingDTO.builder()
+                        .bookingDate(bookingDate.format(formatter))
+                        .checkInDate(checkInDate.format(formatter))
+                        .checkOutDate(checkOutDate.format(formatter))
+                        .roomType(roomType.stream().findFirst().get().getName())
+                        .guests(guestCount)
+                        .totalPrice(totalPrice)
+                        .paidAmount(paidAmount)
+                        .build();
+
+                return profileBookingDTO;
+        }
     }
 

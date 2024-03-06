@@ -1,7 +1,9 @@
 package com.hotella.HotelBookingWebSite.controller.page;
 
 import com.hotella.HotelBookingWebSite.entity.Feedback;
+import com.hotella.HotelBookingWebSite.entity.User;
 import com.hotella.HotelBookingWebSite.security.CustomUserDetailsService;
+import com.hotella.HotelBookingWebSite.service.BookingService;
 import com.hotella.HotelBookingWebSite.service.FeedbackService;
 import com.hotella.HotelBookingWebSite.service.FoodService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.security.Principal;
 
 @Controller
 public class PageController {
@@ -22,6 +26,9 @@ public class PageController {
 
     @Autowired
     CustomUserDetailsService customUserDetailsService;
+
+    @Autowired
+    BookingService bookingService;
 
 
     @GetMapping("/feedback")
@@ -42,7 +49,9 @@ public class PageController {
 
     @GetMapping("/profile")
     public String getProfilePage(Model model) {
-        model.addAttribute("user", customUserDetailsService.getCurrentUser());
+        User user = customUserDetailsService.getCurrentUser();
+        model.addAttribute("user", user);
+        model.addAttribute("bookings", bookingService.getAllBookingsByUserId(user.getId()));
         return "profile";
     }
 

@@ -60,18 +60,24 @@
                                             <table class="table table-striped">
                                                 <thead>
                                                 <tr>
-                                                    <th>Room</th>
+                                                    <th>Booking date</th>
+                                                    <th>Room type</th>
+                                                    <th>Guests</th>
                                                     <th>Check-in Date</th>
                                                     <th>Check-out Date</th>
+                                                    <th>Amount</th>
                                                 </tr>
                                                 </thead>
-                                                <!--       <tbody>
+                                                <tbody>
                                                    <tr th:each="booking : ${bookings}">
-                                                         <td th:text="${booking.roomName}"></td>
-                                                         <td th:text="${booking.checkInDate}"></td>
-                                                         <td th:text="${booking.checkOutDate}"></td>
-                                                     </tr>
-                                                </tbody>    -->
+                                                       <td th:text="${booking.bookingDate}"></td>
+                                                       <td th:text="${booking.roomType}"></td>
+                                                       <td th:text="${booking.guests}"></td>
+                                                       <td th:text="${booking.checkInDate}"></td>
+                                                       <td th:text="${booking.checkOutDate}"></td>
+                                                       <td th:text="${booking.totalPrice}"></td>
+                                                   </tr>
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>

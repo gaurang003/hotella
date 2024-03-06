@@ -104,6 +104,7 @@ public class RoomService {
         RoomType roomType = getRoomTypeById(bookingDTO.getRoomId());
         roomTypeSet.add(roomType);
         booking.setRoomType(roomTypeSet);
+        booking.setGuestCount(bookingDTO.getGuests());
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         formatter = formatter.withLocale( Locale.ENGLISH );  // Locale specifies human language for translating, and cultural norms for lowercase/uppercase and abbreviations and such. Example: Locale.US or Locale.CANADA_FRENCH
