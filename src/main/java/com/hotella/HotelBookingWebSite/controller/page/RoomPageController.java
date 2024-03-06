@@ -1,6 +1,7 @@
 package com.hotella.HotelBookingWebSite.controller.page;
 
 import com.hotella.HotelBookingWebSite.dto.BookingDTO;
+import com.hotella.HotelBookingWebSite.entity.RoomType;
 import com.hotella.HotelBookingWebSite.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,12 +50,15 @@ public class RoomPageController {
     @GetMapping("/room-booking-summary")
     public String showBookingSummary(@ModelAttribute BookingDTO bookingDTO, Model model, Principal user) {
 
-        roomService.saveBooking(bookingDTO, user);
+        RoomType roomType = roomService.getRoomTypeById(bookingDTO.getRoomId());
+        int requiredRooms = (int) Math.ceil((float) bookingDTO.getGuests() /roomType.getMaxGuestCount());
+
         model.addAttribute("guests",  bookingDTO.getGuests());
         model.addAttribute("checkIn",  bookingDTO.getCheckIn());
         model.addAttribute("checkOut",  bookingDTO.getCheckOut());
-        model.addAttribute("room", roomService.getRoomTypeById(bookingDTO.getRoomId()));
-        model.addAttribute("roomCount",  bookingDTO.getRoomCount());
+        model.addAttribute("room", roomType);
+        model.addAttribute("roomCount",  requiredRooms);
+        model.addAttribute("totalAmount",  requiredRooms * roomType.getDailyRent());
         return "room-booking-summary";
     }
 
