@@ -17,9 +17,11 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
 import java.security.Principal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 @Controller
 public class RoomPageController {
@@ -59,11 +61,14 @@ public class RoomPageController {
     }
 
     @GetMapping("/room-booking-summary")
-    public String showBookingSummary(@ModelAttribute BookingDTO bookingDTO, Model model, Principal user) {
+    public String showBookingSummary(@ModelAttribute BookingDTO bookingDTO, Model model, Principal user) throws ParseException {
 
         RoomType roomType = roomService.getRoomTypeById(bookingDTO.getRoomId());
         int requiredRooms = (int) Math.ceil((float) bookingDTO.getGuests() /roomType.getMaxGuestCount());
-        double totalAmount = requiredRooms * roomType.getDailyRent();
+
+        long numberOfDays = calculateNumberOfDays(bookingDTO.getCheckIn(), bookingDTO.getCheckOut());
+
+        double totalAmount = requiredRooms * roomType.getDailyRent() * numberOfDays;
 
         model.addAttribute("guests",  bookingDTO.getGuests());
         model.addAttribute("checkIn",  bookingDTO.getCheckIn());
@@ -76,12 +81,21 @@ public class RoomPageController {
         return "room-booking-summary";
     }
 
+    private long calculateNumberOfDays(String checkIn, String checkOut) throws ParseException{
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date checkInDate = simpleDateFormat.parse(checkIn);
+        Date checkOutDate = simpleDateFormat.parse(checkOut);
+        long diffInMillis = Math.abs(checkOutDate.getTime()- checkInDate.getTime());
+        return TimeUnit.DAYS.convert(diffInMillis, TimeUnit.MILLISECONDS) + 1;
+    }
+
     @GetMapping("/proceed-payment")
-    public RedirectView proceedToPayment(@ModelAttribute BookingDTO bookingDTO, Principal user, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public RedirectView proceedToPayment(@ModelAttribute BookingDTO bookingDTO, Principal user, HttpServletRequest request, HttpServletResponse response) throws IOException, ParseException {
 
         RoomType roomType = roomService.getRoomTypeById(bookingDTO.getRoomId());
         int requiredRooms = (int) Math.ceil((float) bookingDTO.getGuests() /roomType.getMaxGuestCount());
-        double totalAmount = requiredRooms * roomType.getDailyRent();
+        long numberOfDays = calculateNumberOfDays(bookingDTO.getCheckIn(), bookingDTO.getCheckOut()) ;
+        double totalAmount = requiredRooms * roomType.getDailyRent() * numberOfDays;
         roomService.saveBooking(bookingDTO, user);
 
         String razorpayLing = "https://pages.razorpay.com/pl_NhrzF6tsnuItBO/view?amount=" + totalAmount;
