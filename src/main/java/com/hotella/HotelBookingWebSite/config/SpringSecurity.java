@@ -43,19 +43,18 @@ public class SpringSecurity {
                 .rememberMe(tokenRepository -> persistentTokenRepository())
                 .authorizeHttpRequests((authorize) ->
                         authorize.requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/register").permitAll()
-                                .requestMatchers("/index").permitAll()
-                                .requestMatchers("/admin-*").hasAnyRole("ADMIN")
-                                .requestMatchers("/rest/admin/*").hasAnyRole("ADMIN")
-                                .anyRequest().authenticated()
+                                 .requestMatchers("/register").permitAll()
+                                 .requestMatchers("/index").permitAll()
+                                 .requestMatchers("/admin-*").hasRole("ADMIN")
+                                 .requestMatchers("/rest/admin/**").hasRole("ADMIN")
+                                 .anyRequest().authenticated()
                 ).formLogin(
                         form -> form
                                 .loginPage("/index")
                                 .loginProcessingUrl("/login")
                                 .defaultSuccessUrl("/home")
                                 .permitAll()
-                )
-                .logout(
+                ).logout(
                         logout -> logout
                                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                                 .permitAll()
